@@ -338,15 +338,22 @@ export default function App() {
             </div>
           </div>
 
-          <motion.div className="grid md:grid-cols-4 specialists-grid" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.15 }}>
+          <motion.div className="specialists-list" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.1 }}>
             {SPECIALISTS.map((spec, idx) => (
-              <motion.div key={idx} className="specialist-premium-card" onClick={() => setSelectedSpecialist(spec)} variants={fadeUp}>
-                <div className="spec-number">/ 0{idx + 1}</div>
-                <div className="spec-img-wrapper">
+              <motion.div key={idx} className="specialist-row" onClick={() => setSelectedSpecialist(spec)} variants={fadeUp}>
+                <div className="specialist-row-img">
                   <img src={spec.image} alt={spec.name} referrerPolicy="no-referrer" />
+                  <div className="specialist-row-accent"></div>
                 </div>
-                <div className="spec-role">{spec.role}</div>
-                <h3 className="spec-name">{spec.name}</h3>
+                <div className="specialist-row-body">
+                  <div className="specialist-row-meta">
+                    <span className="spec-number-inline">/ 0{idx + 1}</span>
+                    <span className="spec-role-inline">{spec.role}</span>
+                  </div>
+                  <h3 className="specialist-row-name">{spec.name}</h3>
+                  <p className="specialist-row-desc">{spec.description}</p>
+                  <button className="specialist-row-btn">Подробнее <span>→</span></button>
+                </div>
               </motion.div>
             ))}
           </motion.div>
