@@ -547,23 +547,56 @@ export default function App() {
           <h2>Как нас найти</h2>
           <p className="map-section-subtitle">Студия коррекции фигуры в Москве — запишитесь и приходите</p>
         </motion.div>
-        <motion.div
-          className="map-wrapper"
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <iframe
-            src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=96435565736"
-            width="100%"
-            height="480"
-            frameBorder="0"
-            allowFullScreen
-            title="Культура тела на карте"
-            style={{ display: 'block', border: 'none' }}
-          ></iframe>
-        </motion.div>
+
+        <div className="map-grid">
+          <motion.div
+            className="map-grid-item"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="map-label">
+              <span className="map-label-dot"></span>
+              Гарибальди
+            </div>
+            <div className="map-wrapper">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=96435565736"
+                width="100%"
+                height="400"
+                frameBorder="0"
+                allowFullScreen
+                title="Студия Гарибальди"
+                style={{ display: 'block', border: 'none' }}
+              ></iframe>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="map-grid-item"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="map-label">
+              <span className="map-label-dot"></span>
+              Шмитовский проезд
+            </div>
+            <div className="map-wrapper">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=59383899868"
+                width="100%"
+                height="400"
+                frameBorder="0"
+                allowFullScreen
+                title="Студия Шмитовский проезд"
+                style={{ display: 'block', border: 'none' }}
+              ></iframe>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       <AnimatePresence>
