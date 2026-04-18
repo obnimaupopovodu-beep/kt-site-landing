@@ -1146,3 +1146,8 @@ footer {
     height: 320px;
   }
 }
+
+.specialists-grid {
+  column-gap: 2.5rem;
+  row-gap: 3rem;
+}
