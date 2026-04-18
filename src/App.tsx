@@ -145,7 +145,7 @@ export default function App() {
       <header>
         <div className="max-w-7xl flex justify-between items-center py-6 px-8">
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="logo.png" alt="КУЛЬТУРА ТЕЛА" className="header-logo" referrerPolicy="no-referrer" />
+            <img src="/logo.png" alt="КУЛЬТУРА ТЕЛА" className="header-logo" referrerPolicy="no-referrer" />
           </div>
           <nav className="nav-links">
             <a href="#bout">О компании</a>
