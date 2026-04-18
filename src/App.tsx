@@ -338,7 +338,7 @@ export default function App() {
             </div>
           </div>
 
-          <motion.div className="grid md:grid-cols-4 gap-8" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.15 }}>
+          <motion.div className="grid md:grid-cols-4 specialists-grid" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.15 }}>
             {SPECIALISTS.map((spec, idx) => (
               <motion.div key={idx} className="specialist-premium-card" onClick={() => setSelectedSpecialist(spec)} variants={fadeUp}>
                 <div className="spec-number">/ 0{idx + 1}</div>
