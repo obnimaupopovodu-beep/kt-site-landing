@@ -222,8 +222,13 @@ export default function App() {
 
       <div className="section-divider"><span></span></div>
 
-      <motion.section className="py-32 px-8" id="service" {...fadeUp}>
-        <div className="max-w-7xl">
+      <motion.section className="py-32 px-8 section-relative" id="service" {...fadeUp}>
+        <div className="section-shapes">
+          <div className="animate-floatSlow" style={{ position: 'absolute', top: '3rem', right: '6rem', width: '12rem', height: '12rem', border: '1px solid var(--neon)', opacity: 0.08, transform: 'rotate(20deg)' }}></div>
+          <div className="animate-rotateSlow" style={{ position: 'absolute', bottom: '4rem', left: '3rem', width: '16rem', height: '16rem', border: '1px solid var(--neon)', opacity: 0.06 }}></div>
+          <div className="animate-floatMedium" style={{ position: 'absolute', top: '50%', right: '15%', width: '400px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.06, transform: 'rotate(-20deg)' }}></div>
+        </div>
+        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem' }}>
             <div>
               <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em' }}>НАШИ УСЛУГИ</h2>
@@ -271,8 +276,13 @@ export default function App() {
 
       <div className="section-divider section-divider--soft"><span></span></div>
 
-      <motion.section className="py-32 px-8 dcp-section" {...fadeUp}>
-        <div className="max-w-7xl dcp-layout">
+      <motion.section className="py-32 px-8 dcp-section section-relative" {...fadeUp}>
+        <div className="section-shapes">
+          <div className="animate-rotateSlow" style={{ position: 'absolute', top: '2rem', left: '5rem', width: '10rem', height: '10rem', border: '1px solid var(--neon)', opacity: 0.1, transform: 'rotate(8deg)' }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '2rem', right: '8rem', width: '18rem', height: '18rem', border: '1px solid var(--neon)', opacity: 0.07, transform: 'rotate(-15deg)' }}></div>
+          <div className="animate-floatMedium" style={{ position: 'absolute', top: '30%', left: '40%', width: '300px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.08, transform: 'rotate(35deg)' }}></div>
+        </div>
+        <div className="max-w-7xl dcp-layout" style={{ position: 'relative', zIndex: 2 }}>
           <div>
             <span className="eyebrow-tag">Social care</span>
             <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', color: 'var(--neon)' }}>
@@ -293,8 +303,13 @@ export default function App() {
 
       <div className="section-divider"><span></span></div>
 
-      <motion.section className="pt-32 pb-0 px-8 experience-section" {...fadeUp}>
-        <div className="max-w-7xl">
+      <motion.section className="pt-32 pb-0 px-8 experience-section section-relative" {...fadeUp}>
+        <div className="section-shapes">
+          <div className="animate-floatMedium" style={{ position: 'absolute', top: '5rem', right: '2rem', width: '22rem', height: '22rem', border: '1px solid var(--neon)', opacity: 0.07, transform: 'rotate(-8deg)' }}></div>
+          <div className="animate-rotateSlow" style={{ position: 'absolute', bottom: '8rem', right: '30%', width: '8rem', height: '8rem', border: '1px solid var(--neon)', opacity: 0.1 }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', top: '20%', left: '50%', width: '500px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.06, transform: 'rotate(15deg)' }}></div>
+        </div>
+        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
           <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em' }}>
             Делимся многолетним опытом
           </h2>
@@ -367,9 +382,13 @@ export default function App() {
 
       <div className="section-divider"><span></span></div>
 
-      <section className="py-32 px-8">
-        <div className="max-w-7xl">
-          <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', marginBottom: '4rem' }}>
+      <section className="py-32 px-8 section-relative">
+        <div className="section-shapes">
+          <div className="animate-rotateSlow" style={{ position: 'absolute', top: '4rem', left: '50%', width: '14rem', height: '14rem', border: '1px solid var(--neon)', opacity: 0.07, transform: 'rotate(30deg)' }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '3rem', right: '4rem', width: '10rem', height: '10rem', border: '1px solid var(--neon)', opacity: 0.09, transform: 'rotate(-22deg)' }}></div>
+          <div className="animate-floatMedium" style={{ position: 'absolute', top: '60%', left: '5%', width: '350px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.07, transform: 'rotate(-12deg)' }}></div>
+        </div>
+        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>          <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', marginBottom: '4rem' }}>
             <b>НАМ ДОВЕРЯЮТ</b>
           </h2>
           <div className="grid md:grid-cols-3 gap-10">
@@ -393,8 +412,14 @@ export default function App() {
         </div>
       </section>
 
-      <section className="py-32 px-8" style={{ backgroundColor: '#0f0f0f', position: 'relative' }}>
-        <div className="max-w-7xl">
+      <section className="py-32 px-8 section-relative" style={{ backgroundColor: '#0f0f0f', position: 'relative' }}>
+        <div className="section-shapes">
+          <div className="animate-floatSlow" style={{ position: 'absolute', top: '6rem', left: '3rem', width: '15rem', height: '15rem', border: '1px solid var(--neon)', opacity: 0.08, transform: 'rotate(12deg)' }}></div>
+          <div className="animate-rotateSlow" style={{ position: 'absolute', top: '20%', right: '5rem', width: '20rem', height: '20rem', border: '1px solid var(--neon)', opacity: 0.06 }}></div>
+          <div className="animate-floatMedium" style={{ position: 'absolute', bottom: '20%', left: '35%', width: '450px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.07, transform: 'rotate(-25deg)' }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '5rem', left: '60%', width: '9rem', height: '9rem', border: '1px solid var(--neon)', opacity: 0.09, transform: 'rotate(40deg)' }}></div>
+        </div>
+        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ marginBottom: '5rem' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--neon)', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Recognition</span>
             <h2 style={{ fontSize: '3rem', fontWeight: 200, letterSpacing: '0.2em', marginTop: '0.5rem' }}>НАШИ ДОСТИЖЕНИЯ</h2>
@@ -478,8 +503,12 @@ export default function App() {
         </div>
       </section>
 
-      <section className="py-32 px-8" id="reviews" style={{ backgroundColor: '#0a0a0a' }}>
-        <div className="max-w-7xl">
+      <section className="py-32 px-8 section-relative" id="reviews" style={{ backgroundColor: '#0a0a0a' }}>
+        <div className="section-shapes">
+          <div className="animate-rotateSlow" style={{ position: 'absolute', top: '3rem', right: '10rem', width: '13rem', height: '13rem', border: '1px solid var(--neon)', opacity: 0.08, transform: 'rotate(-18deg)' }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '4rem', left: '6rem', width: '11rem', height: '11rem', border: '1px solid var(--neon)', opacity: 0.07, transform: 'rotate(25deg)' }}></div>
+        </div>
+        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
           <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', marginBottom: '4rem' }}>
             ОТЗЫВЫ НАШИХ КЛИЕНТОВ
           </h2>
