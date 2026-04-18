@@ -303,7 +303,7 @@ export default function App() {
 
       <div className="section-divider"><span></span></div>
 
-      <motion.section className="pt-32 pb-0 px-8 experience-section section-relative" {...fadeUp}>
+      <motion.section className="pt-32 pb-24 px-8 experience-section section-relative" {...fadeUp}>
         <div className="section-shapes">
           <div className="animate-floatMedium" style={{ position: 'absolute', top: '5rem', right: '2rem', width: '22rem', height: '22rem', border: '1px solid var(--neon)', opacity: 0.07, transform: 'rotate(-8deg)' }}></div>
           <div className="animate-rotateSlow" style={{ position: 'absolute', bottom: '8rem', right: '30%', width: '8rem', height: '8rem', border: '1px solid var(--neon)', opacity: 0.1 }}></div>
@@ -338,7 +338,7 @@ export default function App() {
 
       <div className="section-divider section-divider--soft"><span></span></div>
 
-      <motion.section className="pt-8 pb-32" id="goats" style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden' }} {...fadeUp}>
+      <motion.section className="pt-8 pb-48" id="goats" style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden' }} {...fadeUp}>
         <div className="specialists-shapes">
           <div className="animate-rotateSlow" style={{ position: 'absolute', top: '6rem', right: '4rem', width: '20rem', height: '20rem', border: '1px solid var(--neon)', opacity: 0.12 }}></div>
           <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '8rem', left: '2rem', width: '14rem', height: '14rem', border: '1px solid var(--neon)', opacity: 0.1, transform: 'rotate(18deg)' }}></div>
