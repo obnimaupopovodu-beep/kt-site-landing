@@ -431,7 +431,7 @@ export default function App() {
               </div>
 
               <div className="bento-item medium">
-                <div style={{ position: 'relative', height: '200px', marginBottom: '1.5rem' }}>
+                <div style={{ position: 'relative', height: '360px', marginBottom: '1.5rem' }}>
                   <img src="award3_1.jpg" style={{ position: 'absolute', width: '70%', height: '100%', objectFit: 'cover', borderRadius: '4px', zIndex: 2 }} alt="Award 3.1" referrerPolicy="no-referrer" />
                   <img src="award3_2.jpg" style={{ position: 'absolute', width: '50%', height: '80%', right: 0, bottom: 0, objectFit: 'cover', borderRadius: '4px', zIndex: 1, opacity: 0.5 }} alt="Award 3.2" referrerPolicy="no-referrer" />
                 </div>
