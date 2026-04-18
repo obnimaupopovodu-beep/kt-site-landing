@@ -541,9 +541,30 @@ export default function App() {
         </div>
       </footer>
 
-      <div className="map-container">
-        <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=59383899868" style={{ width: '100%', height: '300px', border: 0 }} allowFullScreen></iframe>
-      </div>
+      <section className="map-section">
+        <motion.div className="map-section-header" {...fadeUp}>
+          <span className="eyebrow-tag">Мы на карте</span>
+          <h2>Как нас найти</h2>
+          <p className="map-section-subtitle">Студия коррекции фигуры в Москве — запишитесь и приходите</p>
+        </motion.div>
+        <motion.div
+          className="map-wrapper"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=96435565736"
+            width="100%"
+            height="480"
+            frameBorder="0"
+            allowFullScreen
+            title="Культура тела на карте"
+            style={{ display: 'block', border: 'none' }}
+          ></iframe>
+        </motion.div>
+      </section>
 
       <AnimatePresence>
         {selectedService && (
