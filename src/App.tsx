@@ -1,17 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  ArrowRight, 
-  Star, 
-  Hand, 
-  Bone, 
-  Zap, 
-  Target, 
-  Droplet, 
-  Cpu, 
-  Layers, 
-  Activity 
+import {
+  ArrowRight,
+  Star,
+  Hand,
+  Bone,
+  Zap,
+  Target,
+  Droplet,
+  Cpu,
+  Layers,
+  Activity
 } from 'lucide-react';
+
+const fadeUp = {
+  initial: { opacity: 0, y: 48 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+};
+
+const staggerContainer = {
+  initial: {},
+  whileInView: {
+    transition: {
+      staggerChildren: 0.12
+    }
+  },
+  viewport: { once: true, amount: 0.15 }
+};
 
 interface Service {
   title: string;
@@ -32,25 +49,32 @@ const SERVICES: Service[] = [
   {
     title: 'Аппаратный массаж',
     shortDescription: 'Аппаратный метод моделирования контуров тела с использованием вакуумно-роликовой технологии на французском аппарате Cellu M6 Integral.',
-    description: 'Аппаратный метод моделирования контуров тела с использованием вакуумно-роликовой технологии на французском аппарате Cellu M6 Integral. \n \n Эффект от процедуры: уменьшение жировых отложений, выравнивание поверхности кожи, улучшение контуров тела, лимфатический и венозный отток, оксигенация тканей, хорошее самочувствие. Продолжительность: 40-50 мин.',
+    description: 'Аппаратный метод моделирования контуров тела с использованием вакуумно-роликовой технологии на французском аппарате Cellu M6 Integral. 
+ 
+ Эффект от процедуры: уменьшение жировых отложений, выравнивание поверхности кожи, улучшение контуров тела, лимфатический и венозный отток, оксигенация тканей, хорошее самочувствие. Продолжительность: 40-50 мин.',
     icon: <Cpu size={40} strokeWidth={1} />
   },
   {
     title: 'Ручной массаж',
     shortDescription: 'Механическое движение руками в виде различных приемов: давления, вибрации, трения, который проводится на поверхности тела.',
-    description: 'Механическое движение руками в виде различных приемов: давления, вибрации, трения, который проводится на поверхности тела с целью достижения терапевтического или эстетического эффекта. \n Продолжительность: 60-90 мин.',
+    description: 'Механическое движение руками в виде различных приемов: давления, вибрации, трения, который проводится на поверхности тела с целью достижения терапевтического или эстетического эффекта. 
+ Продолжительность: 60-90 мин.',
     icon: <Hand size={40} strokeWidth={1} />
   },
   {
     title: 'Остеопатия',
     shortDescription: 'Врач использует свои руки как очень чувствительный инструмент для устранения функциональных нарушений опорно-двигательной системы.',
-    description: 'Такой вид терапии, когда врач использует свои руки как очень чувствительный инструмент для устранения функциональных нарушений опорно-двигательной системы и ограничений подвижности тканей.В результате происходит устранение боли и улучшение самочувствия. Исчезает усталость, появляются бодрость и заряд энергии.\n Продолжительность: 40 мин.',
+    description: 'Такой вид терапии, когда врач использует свои руки как очень чувствительный инструмент для устранения функциональных нарушений опорно-двигательной системы и ограничений подвижности тканей.В результате происходит устранение боли и улучшение самочувствия. Исчезает усталость, появляются бодрость и заряд энергии.
+ Продолжительность: 40 мин.',
     icon: <Bone size={40} strokeWidth={1} />
   },
   {
     title: 'Миостимуляция',
     shortDescription: 'Воздействие на мышцы с помощью тока низкой частоты. Усиление крово и лимфообращения, улучшение обменных процессов.',
-    description: 'Воздействие на мышцы с помощью тока низкой частоты. \n \n Эффект от процедур: усиление крово и лимфообращения, улучшение обменных процессов в тканях, нормализация работы внутренних органов, уменьшение жирового слоя, нормализация мышечного тонуса. \n Продолжительность: 20 мин.',
+    description: 'Воздействие на мышцы с помощью тока низкой частоты. 
+ 
+ Эффект от процедур: усиление крово и лимфообращения, улучшение обменных процессов в тканях, нормализация работы внутренних органов, уменьшение жирового слоя, нормализация мышечного тонуса. 
+ Продолжительность: 20 мин.',
     icon: <Zap size={40} strokeWidth={1} />
   },
   {
@@ -62,19 +86,37 @@ const SERVICES: Service[] = [
   {
     title: 'Медовый массаж',
     shortDescription: 'Мёд содержит около 30 полезных микроэлементов и витаминов. Улучшает внешний вид кожных покровов, устраняет целлюлит.',
-    description: 'Используется с давних времён и является очень полезным для всего организма.\n\nМёд содержит огромное количество (около 30!) полезных для человека микроэлементов и витаминов.\n\nОн обладает противовоспалительным, антибактериальным, общеукрепляющим действием\n\n-Улучшает внешний вид кожных покровов (мёд оказывает эффект пилинга)\n\n-Уменьшает подкожно-жировую клетчатку в проблемных зонах.\n\n-Устраняет целлюлит\n\n-Улучшает лимфоотток и кровообращение , выводит шлаки и токсины\n\nОтлично борется с усталостью\nПродолжительность 60 - 90 мин.',
+    description: 'Используется с давних времён и является очень полезным для всего организма.
+
+Мёд содержит огромное количество (около 30!) полезных для человека микроэлементов и витаминов.
+
+Он обладает противовоспалительным, антибактериальным, общеукрепляющим действием
+
+-Улучшает внешний вид кожных покровов (мёд оказывает эффект пилинга)
+
+-Уменьшает подкожно-жировую клетчатку в проблемных зонах.
+
+-Устраняет целлюлит
+
+-Улучшает лимфоотток и кровообращение , выводит шлаки и токсины
+
+Отлично борется с усталостью
+Продолжительность 60 - 90 мин.',
     icon: <Droplet size={40} strokeWidth={1} />
   },
   {
     title: 'Лимфодренажное пеленание',
     shortDescription: 'Эффективное средство для коррекции тела, направленное на устранение отеков, лечение целлюлита, улучшения тонуса кожи.',
-    description: 'Эффективное средство для коррекции тела, направленное на устранение отеков, лечение целлюлита, улучшения тонуса кожи, укрепление стенок сосудов. Рекомендовано тем, у кого есть противопоказания к термопроцедурам.\n Продолжительность: 40 мин',
+    description: 'Эффективное средство для коррекции тела, направленное на устранение отеков, лечение целлюлита, улучшения тонуса кожи, укрепление стенок сосудов. Рекомендовано тем, у кого есть противопоказания к термопроцедурам.
+ Продолжительность: 40 мин',
     icon: <Layers size={40} strokeWidth={1} />
   },
   {
     title: 'Эндокринология',
     shortDescription: 'Эндокринологическая процедура включает методы диагностики и лечения, направленные на выявление и коррекцию нарушений.',
-    description: 'Эндокринологическая процедура включает в себя различные методы диагностики и лечения, направленные на выявление и коррекцию нарушений в эндокринной системе, ответственной за выработку гормонов.\nВ результате нормализуется гормональный фон.(Первичный прием очный)\nПродолжительность: 30 мин.',
+    description: 'Эндокринологическая процедура включает в себя различные методы диагностики и лечения, направленные на выявление и коррекцию нарушений в эндокринной системе, ответственной за выработку гормонов.
+В результате нормализуется гормональный фон.(Первичный прием очный)
+Продолжительность: 30 мин.',
     icon: <Activity size={40} strokeWidth={1} />
   }
 ];
@@ -85,28 +127,54 @@ const SPECIALISTS: Specialist[] = [
     role: 'Основатель "Культура тела"',
     image: 'oks_specialists.jpg',
     largeImage: 'oks_specialists.jpg',
-    description: 'Оксана — Окончила Борисоглебское медицинское училище по специальности медицинская сестра широкого профиля в 1993 году\n\n- Специализировалась по направлению медицинский массаж в РУДН г Москвы\n\n- Работала в детских ЛПУ с детьми с ограниченными возможностями: ДЦП, Олигофрения, синдром Дауна\n\n- Закончила МГУУ по специальности психолог\n\n- Прошла обучение Аппаратные методы коррекции лица и тела\n\nСоздатель и вдохновитель студии Культура тела\n\n-в 2022 вступила в Российскую Лигу Массажистов'
+    description: 'Оксана — Окончила Борисоглебское медицинское училище по специальности медицинская сестра широкого профиля в 1993 году
+
+- Специализировалась по направлению медицинский массаж в РУДН г Москвы
+
+- Работала в детских ЛПУ с детьми с ограниченными возможностями: ДЦП, Олигофрения, синдром Дауна
+
+- Закончила МГУУ по специальности психолог
+
+- Прошла обучение Аппаратные методы коррекции лица и тела
+
+Создатель и вдохновитель студии Культура тела
+
+-в 2022 вступила в Российскую Лигу Массажистов'
   },
   {
     name: 'Мария Орлова',
     role: 'Остеопатия',
     image: 'b.png',
     largeImage: 'b_large.png',
-    description: 'Мария Орлова — остеопат и эксперт по мануальным техникам.\n\nБолее 12 лет практики.\nРаботает с глубокими мышечными структурами.\n\nФокус на восстановлении баланса тела и снятии хронического напряжения.'
+    description: 'Мария Орлова — остеопат и эксперт по мануальным техникам.
+
+Более 12 лет практики.
+Работает с глубокими мышечными структурами.
+
+Фокус на восстановлении баланса тела и снятии хронического напряжения.'
   },
   {
     name: 'Екатерина Лаврова',
     role: 'Миостимуляция',
     image: 'c.png',
     largeImage: 'c_large.png',
-    description: 'Екатерина Лаврова — специалист по миостимуляции и лимфодренажу.\n\nРаботает с профессиональными спортсменами.\n\nАвтор индивидуальных протоколов коррекции фигуры.'
+    description: 'Екатерина Лаврова — специалист по миостимуляции и лимфодренажу.
+
+Работает с профессиональными спортсменами.
+
+Автор индивидуальных протоколов коррекции фигуры.'
   },
   {
     name: 'Ольга Виноградова',
     role: 'Рефлексотерапия',
     image: 'd.png',
     largeImage: 'd_large.png',
-    description: 'Ольга Виноградова — эксперт по рефлексотерапии.\n\nМедицинское образование.\nОпыт более 15 лет.\n\nРаботает с восстановлением энергетического баланса организма.'
+    description: 'Ольга Виноградова — эксперт по рефлексотерапии.
+
+Медицинское образование.
+Опыт более 15 лет.
+
+Работает с восстановлением энергетического баланса организма.'
   }
 ];
 
@@ -125,7 +193,6 @@ export default function App() {
 
   return (
     <div className="app">
-      {/* HEADER */}
       <header>
         <div className="max-w-7xl flex justify-between items-center py-6 px-8">
           <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -141,7 +208,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* HERO */}
       <section className="hero" id="bout">
         <div className="hero-shapes">
           <div className="animate-rotateSlow" style={{ position: 'absolute', top: '8rem', left: '5rem', width: '18rem', height: '18rem', border: '1px solid var(--neon)', opacity: 0.2 }}></div>
@@ -151,25 +217,63 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl grid md:grid-cols-2 gap-12 items-center px-8 hero-content">
-          <div className="space-y-10">
+          <motion.div className="space-y-10" initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
+            <span className="eyebrow-tag">Body Architecture</span>
             <h1>КУЛЬТУРА<br />ТЕЛА</h1>
             <p>Студия коррекции фигуры в Москве</p>
-            <button className="btn-primary">Записаться</button>
-          </div>
+            <div className="hero-actions">
+              <button className="btn-primary">Записаться</button>
+              <a href="#service" className="hero-secondary-link">Смотреть услуги</a>
+            </div>
+          </motion.div>
+
+          <motion.div className="hero-side-panel" initial={{ opacity: 0, x: 36 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}>
+            <div className="hero-side-card hero-side-card--lead">
+              <span className="hero-card-kicker">Focus</span>
+              <p>Современный подход к телу, восстановлению и эстетике без визуального шума и клишированного “салонного” дизайна.</p>
+            </div>
+            <div className="hero-stats-grid">
+              <div className="hero-side-card">
+                <span className="hero-stat-value">15+</span>
+                <span className="hero-stat-label">лет практики и авторских протоколов</span>
+              </div>
+              <div className="hero-side-card">
+                <span className="hero-stat-value">8</span>
+                <span className="hero-stat-label">направлений работы в одном пространстве</span>
+              </div>
+              <div className="hero-side-card">
+                <span className="hero-stat-value">1:1</span>
+                <span className="hero-stat-label">внимание к телу, ощущениям и восстановлению</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         <div className="nike-image animate-floatSlow">
-          <img 
-            src="nike.png" 
-            alt="Ника Самофракийская"
-            style={{ width: '100%', objectFit: 'contain' }}
-            referrerPolicy="no-referrer"
-          />
+          <img src="nike.png" alt="Ника Самофракийская" style={{ width: '100%', objectFit: 'contain' }} referrerPolicy="no-referrer" />
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="py-32 px-8" id="service">
+      <section className="marquee-band" aria-label="Ключевые направления студии">
+        <div className="marquee-track">
+          <span>КУЛЬТУРА ТЕЛА</span>
+          <span>АППАРАТНЫЙ МАССАЖ</span>
+          <span>ОСТЕОПАТИЯ</span>
+          <span>КОРРЕКЦИЯ ФИГУРЫ</span>
+          <span>ВОССТАНОВЛЕНИЕ</span>
+          <span>МОСКВА</span>
+          <span>КУЛЬТУРА ТЕЛА</span>
+          <span>АППАРАТНЫЙ МАССАЖ</span>
+          <span>ОСТЕОПАТИЯ</span>
+          <span>КОРРЕКЦИЯ ФИГУРЫ</span>
+          <span>ВОССТАНОВЛЕНИЕ</span>
+          <span>МОСКВА</span>
+        </div>
+      </section>
+
+      <div className="section-divider"><span></span></div>
+
+      <motion.section className="py-32 px-8" id="service" {...fadeUp}>
         <div className="max-w-7xl">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem' }}>
             <div>
@@ -179,10 +283,9 @@ export default function App() {
               </p>
             </div>
           </div>
-          <div className="services-grid md:grid-cols-3">
+          <motion.div className="services-grid md:grid-cols-3" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.15 }}>
             {SERVICES.map((service, idx) => (
-              <div key={idx} className="service-card group">
-                {/* Decorative Borders */}
+              <motion.div key={idx} className="service-card group" variants={fadeUp}>
                 <div className="border-line-container">
                   <div className="border-line border-top"></div>
                   <div className="border-line border-right"></div>
@@ -190,7 +293,6 @@ export default function App() {
                   <div className="border-line border-left"></div>
                 </div>
 
-                {/* Decorative Corners */}
                 <div className="corner corner-top-left">
                   <div className="corner-line line-h"></div>
                   <div className="corner-line line-v"></div>
@@ -212,28 +314,37 @@ export default function App() {
                   <span>ПОДРОБНЕЕ</span>
                   <ArrowRight size={16} />
                 </button>
-              </div>
+              </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      <div className="section-divider section-divider--soft"><span></span></div>
+
+      <motion.section className="py-32 px-8 dcp-section" {...fadeUp}>
+        <div className="max-w-7xl dcp-layout">
+          <div>
+            <span className="eyebrow-tag">Social care</span>
+            <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', color: 'var(--neon)' }}>
+              Бесплатные процедуры Для детей с ДЦП
+            </h2>
+            <div className="dcp-list">
+              <div className="dcp-item">Медицинский массаж тела</div>
+              <div className="dcp-item">Аппаратный массаж тела</div>
+              <div className="dcp-item">Мануальный массаж тела</div>
+            </div>
+          </div>
+          <div className="dcp-stat-card">
+            <span className="dcp-stat-value">300+</span>
+            <p className="dcp-stat-text">часов персонального внимания, поддержки и восстановительных практик в социальном направлении студии.</p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* DCP BLOCK */}
-      <section className="py-32 px-8 dcp-section">
-        <div className="max-w-7xl">
-          <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', color: 'var(--neon)' }}>
-            Бесплатные процедуры Для детей с ДЦП
-          </h2>
-          <div className="dcp-list">
-            <div className="dcp-item">Медицинский массаж тела</div>
-            <div className="dcp-item">Аппаратный массаж тела</div>
-            <div className="dcp-item">Мануальный массаж тела</div>
-          </div>
-        </div>
-      </section>
+      <div className="section-divider"><span></span></div>
 
-      {/* EXPERIENCE BLOCK */}
-      <section className="pt-32 pb-0 px-8 experience-section">
+      <motion.section className="pt-32 pb-0 px-8 experience-section" {...fadeUp}>
         <div className="max-w-7xl">
           <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em' }}>
             Делимся многолетним опытом
@@ -241,11 +352,14 @@ export default function App() {
           <p style={{ color: 'var(--text-gray)', fontSize: '1.1rem', marginTop: '2rem', lineHeight: 1.6, maxWidth: '800px' }}>
             Делимся своим многолетним опытом работы на оборудовании Cellu m 6 французской компании LPG Systems и консультируем по массажу VIVATON по системе ЗОЖ Академика А. М. Савелова-Дерябина "Продлите молодость свою".
           </p>
-          
-          <div className="chaotic-images" style={{ margin: '4rem 0' }}>
-            <img src="https://picsum.photos/seed/exp1/300/200" className="chaotic-img" style={{ top: '0', left: '0', width: '250px', transform: 'rotate(-5deg)' }} alt="Experience 1" referrerPolicy="no-referrer" />
-            <img src="https://picsum.photos/seed/exp2/300/200" className="chaotic-img" style={{ top: '50px', left: '40%', width: '300px', transform: 'rotate(3deg)', zIndex: 2 }} alt="Experience 2" referrerPolicy="no-referrer" />
-            <img src="https://picsum.photos/seed/exp3/300/200" className="chaotic-img" style={{ bottom: '0', right: '10%', width: '280px', transform: 'rotate(-2deg)' }} alt="Experience 3" referrerPolicy="no-referrer" />
+
+          <div className="experience-highlight">
+            <span className="experience-watermark">EXPERTISE</span>
+            <div className="chaotic-images" style={{ margin: '0' }}>
+              <img src="https://picsum.photos/seed/exp1/300/200" className="chaotic-img" style={{ top: '0', left: '0', width: '250px', transform: 'rotate(-5deg)' }} alt="Experience 1" referrerPolicy="no-referrer" />
+              <img src="https://picsum.photos/seed/exp2/300/200" className="chaotic-img" style={{ top: '50px', left: '40%', width: '300px', transform: 'rotate(3deg)', zIndex: 2 }} alt="Experience 2" referrerPolicy="no-referrer" />
+              <img src="https://picsum.photos/seed/exp3/300/200" className="chaotic-img" style={{ bottom: '0', right: '10%', width: '280px', transform: 'rotate(-2deg)' }} alt="Experience 3" referrerPolicy="no-referrer" />
+            </div>
           </div>
 
           <p style={{ color: '#fff', fontSize: '1.25rem', fontWeight: 300, marginBottom: '2rem', maxWidth: '600px' }}>
@@ -256,11 +370,11 @@ export default function App() {
             связаться со специалистом
           </button>
         </div>
-      </section>
+      </motion.section>
 
-      {/* SPECIALISTS */}
-      <section className="pt-8 pb-32" id="goats" style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
-        {/* Decorative Geo Shapes */}
+      <div className="section-divider section-divider--soft"><span></span></div>
+
+      <motion.section className="pt-8 pb-32" id="goats" style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden' }} {...fadeUp}>
         <div className="geo-shape" style={{ width: '300px', height: '300px', top: '-100px', right: '-100px', borderRadius: '50%' }}></div>
         <div className="geo-shape" style={{ width: '150px', height: '150px', bottom: '50px', left: '-50px', transform: 'rotate(45deg)' }}></div>
 
@@ -275,22 +389,23 @@ export default function App() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-24">
+          <motion.div className="grid md:grid-cols-4 gap-24" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.15 }}>
             {SPECIALISTS.map((spec, idx) => (
-              <div key={idx} className="specialist-premium-card" onClick={() => setSelectedSpecialist(spec)}>
+              <motion.div key={idx} className="specialist-premium-card" onClick={() => setSelectedSpecialist(spec)} variants={fadeUp}>
                 <div className="spec-number">/ 0{idx + 1}</div>
                 <div className="spec-img-wrapper">
                   <img src={spec.image} alt={spec.name} referrerPolicy="no-referrer" />
                 </div>
                 <div className="spec-role">{spec.role}</div>
                 <h3 className="spec-name">{spec.name}</h3>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* TRUST */}
+      <div className="section-divider"><span></span></div>
+
       <section className="py-32 px-8">
         <div className="max-w-7xl">
           <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', marginBottom: '4rem' }}>
@@ -317,7 +432,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ACHIEVEMENTS */}
       <section className="py-32 px-8" style={{ backgroundColor: '#0f0f0f', position: 'relative' }}>
         <div className="max-w-7xl">
           <div style={{ marginBottom: '5rem' }}>
@@ -325,7 +439,6 @@ export default function App() {
             <h2 style={{ fontSize: '3rem', fontWeight: 200, letterSpacing: '0.2em', marginTop: '0.5rem' }}>НАШИ ДОСТИЖЕНИЯ</h2>
           </div>
 
-          {/* Video Topics Section */}
           <div className="flex flex-col gap-32 mb-32">
             <div className="video-preview-row">
               <div className="space-y-4">
@@ -359,7 +472,6 @@ export default function App() {
           </div>
 
           <div className="achievements-rows">
-            {/* Row 1: Two blocks at edges */}
             <div className="achievement-row achievement-row--two-col">
               <div className="bento-item medium">
                 <img src="award2.jpg" className="bento-img" alt="Award 2" referrerPolicy="no-referrer" />
@@ -381,7 +493,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Row 2: One block centered */}
             <div className="achievement-row achievement-row--center">
               <div className="bento-item large">
                 <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
@@ -394,7 +505,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Row 3: One block centered */}
             <div className="achievement-row achievement-row--center">
               <div className="bento-item small">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -407,25 +517,19 @@ export default function App() {
         </div>
       </section>
 
-      {/* REVIEWS */}
       <section className="py-32 px-8" id="reviews" style={{ backgroundColor: '#0a0a0a' }}>
         <div className="max-w-7xl">
           <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', marginBottom: '4rem' }}>
             ОТЗЫВЫ НАШИХ КЛИЕНТОВ
           </h2>
-          
+
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Yandex Widget */}
             <div className="widget-container-styled">
-              <div style={{ width:'100%', height:'600px', overflow:'hidden', position:'relative' }}>
-                <iframe 
-                  style={{ width:'100%', height:'100%', border:'none', borderRadius:'8px' }}
-                  src="https://yandex.ru/maps-reviews-widget/59383899868?comments"
-                ></iframe>
+              <div style={{ width: '100%', height: '600px', overflow: 'hidden', position: 'relative' }}>
+                <iframe style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }} src="https://yandex.ru/maps-reviews-widget/59383899868?comments"></iframe>
               </div>
             </div>
 
-            {/* Zoon Widget Placeholder (Script based) */}
             <div className="widget-container-styled">
               <div className="zoon-widget-comments" data-id="6053fbc8d4665c5eda3c5b29" data-locale="ru_RU" data-type="list" data-stars="all" data-style="white" data-host="//zoon.ru/">
                 <a href="https://zoon.ru/msk/beauty/studiya_korrektsii_figury_kultura_tela_na_krasnoproletarskoj_ulitse/">Студия коррекции фигуры Культура Тела на Краснопролетарской улице</a>
@@ -435,7 +539,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer id="contacts">
         <div className="footer-content">
           <div style={{ letterSpacing: '0.4em' }}>КУЛЬТУРА ТЕЛА</div>
@@ -448,30 +551,13 @@ export default function App() {
       </footer>
 
       <div className="map-container">
-        <iframe 
-          src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=59383899868"
-          style={{ width: '100%', height: '300px', border: 0 }}
-          allowFullScreen
-        ></iframe>
+        <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=59383899868" style={{ width: '100%', height: '300px', border: 0 }} allowFullScreen></iframe>
       </div>
 
-      {/* MODALS */}
       <AnimatePresence>
         {selectedService && (
-          <motion.div 
-            className="modal-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedService(null)}
-          >
-            <motion.div 
-              className="modal-content"
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
+          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedService(null)}>
+            <motion.div className="modal-content" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
               <h3 style={{ fontSize: '1.875rem', fontWeight: 700, marginBottom: '1.5rem' }}>{selectedService.title}</h3>
               <p style={{ color: '#d1d5db', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{selectedService.description}</p>
             </motion.div>
@@ -479,20 +565,8 @@ export default function App() {
         )}
 
         {selectedSpecialist && (
-          <motion.div 
-            className="modal-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedSpecialist(null)}
-          >
-            <motion.div 
-              className="modal-content specialist-modal-content"
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
+          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedSpecialist(null)}>
+            <motion.div className="modal-content specialist-modal-content" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
               <div className="grid md:grid-cols-2 gap-10 items-center">
                 <div style={{ borderRadius: '1rem', overflow: 'hidden' }}>
                   <img src={selectedSpecialist.largeImage} alt={selectedSpecialist.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} referrerPolicy="no-referrer" />
@@ -507,26 +581,9 @@ export default function App() {
         )}
 
         {videoUrl && (
-          <motion.div 
-            className="modal-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setVideoUrl(null)}
-          >
-            <motion.div 
-              className="modal-content video-modal-content"
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <iframe 
-                src={videoUrl} 
-                className="video-iframe"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-              ></iframe>
+          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setVideoUrl(null)}>
+            <motion.div className="modal-content video-modal-content" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
+              <iframe src={videoUrl} className="video-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </motion.div>
           </motion.div>
         )}
