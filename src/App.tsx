@@ -442,7 +442,7 @@ export default function App() {
             </div>
 
             <div className="video-preview-row">
-              <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://rutube.ru/video/749ac3a4b28cfb758f9cdb917ac5b281/?r=wd')}>
+              <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://rutube.ru/play/embed/749ac3a4b28cfb758f9cdb917ac5b281/')}>
                 <img src="coverrut.png" alt="Rutube Preview" referrerPolicy="no-referrer" />
                 <div className="play-overlay">
                   <div className="play-icon">▶</div>
@@ -469,7 +469,6 @@ export default function App() {
               <div className="bento-item medium">
                 <div style={{ position: 'relative', height: '360px', marginBottom: '1.5rem' }}>
                   <img src="award3_1.jpg" style={{ position: 'absolute', width: '70%', height: '100%', objectFit: 'cover', borderRadius: '4px', zIndex: 2 }} alt="Award 3.1" referrerPolicy="no-referrer" />
-                  <img src="award3_2.jpg" style={{ position: 'absolute', width: '50%', height: '80%', right: 0, bottom: 0, objectFit: 'cover', borderRadius: '4px', zIndex: 1, opacity: 0.5 }} alt="Award 3.2" referrerPolicy="no-referrer" />
                 </div>
                 <div>
                   <span className="bento-tag">Championship</span>
@@ -481,7 +480,7 @@ export default function App() {
             <div className="achievement-row achievement-row--center">
               <div className="bento-item large">
                 <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-                  <img src="award4.png" className="bento-img" style={{ width: '40%', marginBottom: 0 }} alt="Award 4" referrerPolicy="no-referrer" />
+                  <img src="socialimpact.jpg" className="bento-img" style={{ width: '40%', marginBottom: 0 }} alt="Award 4" referrerPolicy="no-referrer" />
                   <div>
                     <span className="bento-tag">Social Impact</span>
                     <p className="bento-text">Благодарность за вклад в программу: "Вместе мы меняем жизнь к лучшему".</p>
@@ -520,8 +519,8 @@ export default function App() {
             </div>
 
             <div className="widget-container-styled">
-              <div className="zoon-widget-comments" data-id="6053fbc8d4665c5eda3c5b29" data-locale="ru_RU" data-type="list" data-stars="all" data-style="white" data-host="//zoon.ru/">
-                <a href="https://zoon.ru/msk/beauty/studiya_korrektsii_figury_kultura_tela_na_krasnoproletarskoj_ulitse/">Студия коррекции фигуры Культура Тела на Краснопролетарской улице</a>
+              <div style={{ width: '100%', height: '600px', overflow: 'hidden', position: 'relative' }}>
+                <iframe style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }} src="https://yandex.ru/maps-reviews-widget/96435565736?comments"></iframe>
               </div>
             </div>
           </div>
@@ -654,7 +653,7 @@ export default function App() {
               <p className="location-modal-subtitle">Запись доступна в двух студиях</p>
               <div className="location-modal-buttons">
                 <a
-                  href="https://n1063948.yclients.com"
+                  href="https://salon-scheduler-beryl.vercel.app/book"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="location-btn"
@@ -662,7 +661,7 @@ export default function App() {
                   Гарибальди
                 </a>
                 <a
-                  href="https://n1063948.yclients.com"
+                  href="https://n429978.yclients.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="location-btn"
