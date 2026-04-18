@@ -598,11 +598,6 @@ export default function App() {
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
             >
-              <button
-                className="modal-close"
-                onClick={() => setShowLocationModal(false)}
-                aria-label="Закрыть"
-              >×</button>
               <h2 className="location-modal-title">Выберите студию</h2>
               <p className="location-modal-subtitle">Запись доступна в двух студиях</p>
               <div className="location-modal-buttons">
