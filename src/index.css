@@ -1318,3 +1318,20 @@ footer {
 .specialists-shapes > div {
   position: absolute;
 }
+
+.section-relative {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.section-shapes > div {
+  position: absolute;
+}
