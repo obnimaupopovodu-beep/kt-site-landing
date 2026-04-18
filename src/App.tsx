@@ -131,14 +131,15 @@ export default function App() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [selectedSpecialist, setSelectedSpecialist] = useState<Specialist | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [showLocationModal, setShowLocationModal] = useState<boolean>(false);
 
   useEffect(() => {
-    if (selectedService || selectedSpecialist || videoUrl) {
+    if (selectedService || selectedSpecialist || videoUrl || showLocationModal) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-  }, [selectedService, selectedSpecialist, videoUrl]);
+  }, [selectedService, selectedSpecialist, videoUrl, showLocationModal]);
 
   return (
     <div className="app">
@@ -171,7 +172,7 @@ export default function App() {
             <h1>КУЛЬТУРА<br />ТЕЛА</h1>
             <p>Студия коррекции фигуры в Москве</p>
             <div className="hero-actions">
-              <button className="btn-primary">Записаться</button>
+              <button className="btn-primary" onClick={() => setShowLocationModal(true)}>Записаться</button>
               <a href="#service" className="hero-secondary-link">Смотреть услуги</a>
             </div>
           </motion.div>
@@ -574,6 +575,54 @@ export default function App() {
           <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setVideoUrl(null)}>
             <motion.div className="modal-content video-modal-content" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
               <iframe src={videoUrl} className="video-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {/* Location Picker Modal */}
+      <AnimatePresence>
+        {showLocationModal && (
+          <motion.div
+            className="modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setShowLocationModal(false)}
+          >
+            <motion.div
+              className="location-modal-card"
+              initial={{ opacity: 0, scale: 0.94, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 24 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
+            >
+              <button
+                className="modal-close"
+                onClick={() => setShowLocationModal(false)}
+                aria-label="Закрыть"
+              >×</button>
+              <h2 className="location-modal-title">Выберите студию</h2>
+              <p className="location-modal-subtitle">Запись доступна в двух студиях</p>
+              <div className="location-modal-buttons">
+                <a
+                  href="https://n1063948.yclients.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="location-btn"
+                >
+                  Гарибальди
+                </a>
+                <a
+                  href="https://n1063948.yclients.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="location-btn"
+                >
+                  Шмитовский проезд
+                </a>
+              </div>
             </motion.div>
           </motion.div>
         )}
