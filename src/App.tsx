@@ -105,25 +105,25 @@ const SPECIALISTS: Specialist[] = [
     description: 'Оксана — Окончила Борисоглебское медицинское училище по специальности медицинская сестра широкого профиля в 1993 году\n\n- Специализировалась по направлению медицинский массаж в РУДН г Москвы\n\n- Работала в детских ЛПУ с детьми с ограниченными возможностями: ДЦП, Олигофрения, синдром Дауна\n\n- Закончила МГУУ по специальности психолог\n\n- Прошла обучение Аппаратные методы коррекции лица и тела\n\nСоздатель и вдохновитель студии Культура тела\n\n-в 2022 вступила в Российскую Лигу Массажистов'
   },
   {
-    name: 'Мария Орлова',
+    name: 'Николай Альбертович Мишин',
     role: 'Остеопатия',
     image: 'b.png',
     largeImage: 'b_large.png',
-    description: 'Мария Орлова — остеопат и эксперт по мануальным техникам.\n\nБолее 12 лет практики.\nРаботает с глубокими мышечными структурами.\n\nФокус на восстановлении баланса тела и снятии хронического напряжения.'
+    description: 'Николай Мишин — остеопат и эксперт по мануальным техникам.\n\n-Образование высшее медицинское\n-1981-1987 г. ММСИ имени Семашко по специальности Лечебное дело.\n\n-1987-1988 г. ГКБ77 интернатура по специальности анестезиология реанимация\n\n-1995-1997 г. Институт хирургии имени Вишневского ординатура по специальности хирургия\n\n-2006-2010 г. Высшая Школа Остеопатии во Франции. Присвоена специальность "Остеопат Европы".\n\n-2014 г. Получил специализацию "врач ЛФК и спортивной медицины" при ПП МНЦП.\n\n-2015 г. Подтвердил специализацию "врач остеопат" при ПП Новгородском ГУ имени Ярослава Мудрого.\n\n-Опыт работы с 1987 г. по сей день.'
   },
   {
-    name: 'Екатерина Лаврова',
-    role: 'Миостимуляция',
+    name: 'Лариса Сергеевна Агапцева',
+    role: 'Массажист',
     image: 'c.png',
     largeImage: 'c_large.png',
-    description: 'Екатерина Лаврова — специалист по миостимуляции и лимфодренажу.\n\nРаботает с профессиональными спортсменами.\n\nАвтор индивидуальных протоколов коррекции фигуры.'
+    description: 'Лариса Агапцева — массажист с большим опытом работы.\n\n-Закончила медицинское училище при ЦКБ медсестра широкого профиля в 1989году.\n\n-Тибет ( Непал) в 1991году освоила массажные и энергетические практики .\n\n-1992 в Японии изучила массаж ши- а - Цу\n\n-В 1993 году в Школе/Академии Виватон успешно прошла обучение массажу лица и тела по системе Академика Савёлова-Дерябина.\n\n-В настоящее время консультирует по препаратам Виватон и системе Продлите молодость свою.\n\n-Преподает с 1994 года массаж Виватон , экологию человека и систему Академика Савелова- Дерябина "Продлите молодость свою".'
   },
   {
-    name: 'Ольга Виноградова',
-    role: 'Рефлексотерапия',
+    name: 'Светлана Сергеевна Тюрина',
+    role: 'Консультант',
     image: 'd.png',
     largeImage: 'd_large.png',
-    description: 'Ольга Виноградова — эксперт по рефлексотерапии.\n\nМедицинское образование.\nОпыт более 15 лет.\n\nРаботает с восстановлением энергетического баланса организма.'
+    description: 'Светлана Тюрина — эксперт в обретании гормонии.\n\n- выпускница Первого Московского государственного медицинского университета им. И. М. Сеченова\n\nСветлана Сергеевна поможет вам разобраться в сложных вопросах гормонального баланса, подобрать индивидуальный план питания и обрести гармонию с собой\nОна постоянно совершенствует свои знания и изучает:\n- Эндокринологию во всех ее аспектах\n- Науку о питании и здоровом образе жизни (нутрициологию и диетологию)\n- Психологию общения, чтобы найти подход к каждому пациентуn\n- Превентивную медицину для сохранения вашего здоровья на долгие годы'
   }
 ];
 
@@ -321,9 +321,9 @@ export default function App() {
           <div className="experience-highlight">
             <span className="experience-watermark">EXPERTISE</span>
             <div className="chaotic-images" style={{ margin: '0' }}>
-              <img src="https://picsum.photos/seed/exp1/300/200" className="chaotic-img" style={{ top: '0', left: '0', width: '250px', transform: 'rotate(-5deg)' }} alt="Experience 1" referrerPolicy="no-referrer" />
-              <img src="https://picsum.photos/seed/exp2/300/200" className="chaotic-img" style={{ top: '50px', left: '40%', width: '300px', transform: 'rotate(3deg)', zIndex: 2 }} alt="Experience 2" referrerPolicy="no-referrer" />
-              <img src="https://picsum.photos/seed/exp3/300/200" className="chaotic-img" style={{ bottom: '0', right: '10%', width: '280px', transform: 'rotate(-2deg)' }} alt="Experience 3" referrerPolicy="no-referrer" />
+              <img src="stuff1.png" className="chaotic-img" style={{ top: '0', left: '0', width: '250px', transform: 'rotate(-5deg)' }} alt="Experience 1" referrerPolicy="no-referrer" />
+              <img src="stuff2.png" className="chaotic-img" style={{ top: '50px', left: '40%', width: '300px', transform: 'rotate(3deg)', zIndex: 2 }} alt="Experience 2" referrerPolicy="no-referrer" />
+              <img src="stuff3.png" className="chaotic-img" style={{ bottom: '0', right: '10%', width: '280px', transform: 'rotate(-2deg)' }} alt="Experience 3" referrerPolicy="no-referrer" />
             </div>
           </div>
 
@@ -432,7 +432,6 @@ export default function App() {
                 <span className="bento-tag">YouTube</span>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: 300, color: '#fff' }}>Остеопатия/ проблемы с чем справляется остеопатия</h3>
                 <p style={{ color: 'var(--text-gray)', fontWeight: 200 }}>Подробный разбор методов остеопатии и их влияния на здоровье организма в эфире федерального канала.</p>
-                <button className="tv-link" onClick={() => setVideoUrl('https://www.youtube.com/embed/dQw4w9WgXcQ')}>Смотреть видео</button>
               </div>
               <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://www.youtube.com/embed/dQw4w9WgXcQ')}>
                 <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="YouTube Preview" referrerPolicy="no-referrer" />
@@ -443,8 +442,8 @@ export default function App() {
             </div>
 
             <div className="video-preview-row">
-              <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://rutube.ru/play/embed/123456')}>
-                <img src="https://picsum.photos/seed/rutube/800/450" alt="Rutube Preview" referrerPolicy="no-referrer" />
+              <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://rutube.ru/video/749ac3a4b28cfb758f9cdb917ac5b281/?r=wd')}>
+                <img src="coverrut.png" alt="Rutube Preview" referrerPolicy="no-referrer" />
                 <div className="play-overlay">
                   <div className="play-icon">▶</div>
                 </div>
@@ -453,7 +452,6 @@ export default function App() {
                 <span className="bento-tag">RuTube</span>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: 300, color: '#fff' }}>Как избавиться от лишних килограммов, без вреда для здоровья?</h3>
                 <p style={{ color: 'var(--text-gray)', fontWeight: 200 }}>Экспертное мнение о безопасном похудении и коррекции фигуры без стресса для организма.</p>
-                <button className="tv-link" onClick={() => setVideoUrl('https://rutube.ru/play/embed/123456')}>Смотреть видео</button>
               </div>
             </div>
           </div>
