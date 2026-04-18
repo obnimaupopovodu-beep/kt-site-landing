@@ -324,8 +324,13 @@ export default function App() {
       <div className="section-divider section-divider--soft"><span></span></div>
 
       <motion.section className="pt-8 pb-32" id="goats" style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden' }} {...fadeUp}>
-        <div className="geo-shape" style={{ width: '300px', height: '300px', top: '-100px', right: '-100px', borderRadius: '50%' }}></div>
-        <div className="geo-shape" style={{ width: '150px', height: '150px', bottom: '50px', left: '-50px', transform: 'rotate(45deg)' }}></div>
+        <div className="specialists-shapes">
+          <div className="animate-rotateSlow" style={{ position: 'absolute', top: '6rem', right: '4rem', width: '20rem', height: '20rem', border: '1px solid var(--neon)', opacity: 0.12 }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '8rem', left: '2rem', width: '14rem', height: '14rem', border: '1px solid var(--neon)', opacity: 0.1, transform: 'rotate(18deg)' }}></div>
+          <div className="animate-floatMedium" style={{ position: 'absolute', top: '40%', left: '50%', width: '600px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.07, transform: 'rotate(-30deg)' }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', top: '15%', left: '8rem', width: '10rem', height: '10rem', border: '1px solid var(--neon)', opacity: 0.08, transform: 'rotate(-12deg)' }}></div>
+          <div className="animate-rotateSlow" style={{ position: 'absolute', bottom: '15%', right: '20%', width: '8rem', height: '8rem', border: '1px solid var(--neon)', opacity: 0.1 }}></div>
+        </div>
 
         <div className="max-w-7xl px-8" style={{ position: 'relative', zIndex: 10 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '5rem' }}>
