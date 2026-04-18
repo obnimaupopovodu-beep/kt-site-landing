@@ -1156,7 +1156,7 @@ footer {
 .specialists-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3px;
+  gap: 2rem;
 }
 
 .specialist-row {
