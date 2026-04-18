@@ -507,7 +507,7 @@ footer {
   position: relative;
   background-color: #141414;
   border: 1px solid rgba(255, 236, 15, 0.1);
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   transition: all 0.4s ease;
   cursor: pointer;
   display: flex;
@@ -532,7 +532,7 @@ footer {
 .spec-img-wrapper {
   width: 100%;
   aspect-ratio: 1/1;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   position: relative;
   overflow: hidden;
   border-radius: 4px;
