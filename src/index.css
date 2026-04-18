@@ -706,23 +706,43 @@ footer {
 }
 
 .btn-figurative {
-  background-color: transparent;
-  color: var(--neon);
-  border: 1px solid var(--neon);
-  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #ffec0f, #f5e6a3);
+  color: #1a1a1a;
+  padding: 1.25rem 3.5rem;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.3em;
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(255, 236, 15, 0.2);
+  font-weight: 500;
+}
+
+.btn-figurative::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #ffec0f, #c8b800, #ffec0f);
+  border-radius: 50px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .btn-figurative:hover {
-  background-color: var(--neon);
-  color: #000;
-  box-shadow: 0 0 30px var(--neon);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 236, 15, 0.4);
+}
+
+.btn-figurative:hover::before {
+  opacity: 1;
 }
 
 /* Trust and Reviews Redesign */
