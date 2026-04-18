@@ -423,7 +423,7 @@ export default function App() {
           <div className="achievements-rows">
             <div className="achievement-row achievement-row--two-col">
               <div className="bento-item medium">
-                <img src="award2.jpg" className="bento-img" alt="Award 2" referrerPolicy="no-referrer" />
+                <img src="award2.jpg" className="bento-img" style={{ objectPosition: 'top' }} alt="Award 2" referrerPolicy="no-referrer" />
                 <div>
                   <span className="bento-tag">Business Forum</span>
                   <p className="bento-text">Призер бизнес форума "Лучшая в своем деле" в номинации "Красота и здоровье".</p>
