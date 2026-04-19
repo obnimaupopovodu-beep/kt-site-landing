@@ -132,6 +132,7 @@ export default function App() {
   const [selectedSpecialist, setSelectedSpecialist] = useState<Specialist | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [showLocationModal, setShowLocationModal] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (selectedService || selectedSpecialist || videoUrl || showLocationModal) {
@@ -144,18 +145,40 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <div className="max-w-7xl flex justify-between items-center py-6 px-8">
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/logo.png" alt="КУЛЬТУРА ТЕЛА" className="header-logo" referrerPolicy="no-referrer" />
-          </div>
-          <nav className="nav-links">
+        <div className="header-inner">
+          <img src="/logo.png" alt="КУЛЬТУРА ТЕЛА" className="header-logo" referrerPolicy="no-referrer" />
+
+          {/* Desktop nav */}
+          <nav className="nav-links nav-desktop">
             <a href="#bout">О компании</a>
             <a href="#service">Услуги</a>
             <a href="#goats">Специалисты</a>
             <a href="#reviews">Отзывы</a>
             <a href="#contacts">Контакты</a>
           </nav>
+
+          {/* Burger button — mobile only */}
+          <button
+            className="burger-btn"
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label="Меню"
+          >
+            <span className={menuOpen ? 'burger-line burger-line--top open' : 'burger-line burger-line--top'}></span>
+            <span className={menuOpen ? 'burger-line burger-line--mid open' : 'burger-line burger-line--mid'}></span>
+            <span className={menuOpen ? 'burger-line burger-line--bot open' : 'burger-line burger-line--bot'}></span>
+          </button>
         </div>
+
+        {/* Mobile dropdown */}
+        {menuOpen && (
+          <nav className="nav-mobile" onClick={() => setMenuOpen(false)}>
+            <a href="#bout">О компании</a>
+            <a href="#service">Услуги</a>
+            <a href="#goats">Специалисты</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+        )}
       </header>
 
       <section className="hero" id="bout">
