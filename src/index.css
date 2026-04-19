@@ -1737,3 +1737,34 @@ footer {
     letter-spacing: 0.05em;
   }
 }
+
+/* Hero: 769–1271px — prevent side panel overlapping title */
+@media (min-width: 769px) and (max-width: 1271px) {
+  .hero-content {
+    grid-template-columns: 1fr !important;
+    gap: 3rem;
+    padding-top: 2rem;
+  }
+
+  .hero-side-panel {
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .hero-side-card--lead {
+    grid-column: 1 / -1;
+  }
+
+  .hero-stats-grid {
+    display: contents;
+  }
+
+  .hero-side-card {
+    min-height: auto;
+  }
+}
