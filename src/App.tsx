@@ -253,6 +253,10 @@ export default function App() {
           <div className="animate-floatSlow" style={{ position: 'absolute', top: '3rem', right: '6rem', width: '12rem', height: '12rem', border: '1px solid var(--neon)', opacity: 0.08, transform: 'rotate(20deg)' }}></div>
           <div className="animate-rotateSlow" style={{ position: 'absolute', bottom: '4rem', left: '3rem', width: '16rem', height: '16rem', border: '1px solid var(--neon)', opacity: 0.06 }}></div>
           <div className="animate-floatMedium" style={{ position: 'absolute', top: '50%', right: '15%', width: '400px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.06, transform: 'rotate(-20deg)' }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', top: '25%', left: '8%', width: '600px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.05, transform: 'rotate(12deg)' }}></div>
+          <div className="animate-floatMedium" style={{ position: 'absolute', bottom: '20%', right: '5%', width: '500px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.05, transform: 'rotate(-35deg)' }}></div>
+          <div className="animate-rotateSlow" style={{ position: 'absolute', top: '10%', left: '40%', width: '8rem', height: '8rem', border: '1px solid var(--neon)', opacity: 0.05, transform: 'rotate(45deg)' }}></div>
+          <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '15%', right: '30%', width: '5rem', height: '5rem', border: '1px solid var(--neon)', opacity: 0.07, transform: 'rotate(-15deg)' }}></div>
         </div>
         <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem' }}>
@@ -518,7 +522,7 @@ export default function App() {
             </div>
 
             <div className="achievement-row achievement-row--center">
-              <div className="bento-item medium bento-item--flex">
+              <div className="bento-item medium bento-item--flex" style={{ maxWidth: '420px', width: '100%' }}>
                 <div className="bento-item-top">
                   <span className="bento-tag">Social Impact</span>
                   <p className="bento-text">Благодарность за вклад в программу: "Вместе мы меняем жизнь к лучшему".</p>
@@ -654,8 +658,8 @@ export default function App() {
             <motion.div className="modal-content specialist-modal-content specialist-modal-scrollable" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
               <button className="modal-close-btn" onClick={() => setSelectedSpecialist(null)} aria-label="Закрыть">×</button>
               <div className="grid md:grid-cols-2 gap-10 items-start specialist-modal-inner">
-                <div style={{ borderRadius: '1rem', overflow: 'hidden' }}>
-                  <img src={selectedSpecialist.largeImage} alt={selectedSpecialist.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} referrerPolicy="no-referrer" />
+                <div>
+                  <img src={selectedSpecialist.largeImage} alt={selectedSpecialist.name} style={{ width: '100%', height: 'auto', display: 'block' }} referrerPolicy="no-referrer" />
                 </div>
                 <div>
                   <h2 style={{ fontSize: '1.875rem', fontWeight: 600, marginBottom: '1.5rem', color: 'var(--neon)' }}>{selectedSpecialist.name}</h2>
