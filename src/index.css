@@ -81,6 +81,15 @@ header {
   backdrop-filter: blur(12px);
 }
 
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -98,6 +107,82 @@ header {
 
 .nav-links a:hover {
   color: var(--neon);
+}
+
+/* Burger button */
+.burger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 60;
+}
+
+.burger-line {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--text-white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.burger-line--top.open  { transform: translateY(6.5px) rotate(45deg); }
+.burger-line--mid.open  { opacity: 0; transform: scaleX(0); }
+.burger-line--bot.open  { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile dropdown nav */
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  background-color: rgba(20, 20, 20, 0.97);
+  backdrop-filter: blur(16px);
+  padding: 0.5rem 0 1rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-mobile a {
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 2rem;
+  width: 100%;
+  text-align: center;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--neon);
+  background: rgba(255,255,255,0.03);
+}
+
+/* Hide desktop nav / show burger on mobile */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 0.65rem 1.25rem;
+  }
+
+  .header-logo {
+    height: 28px !important;
+  }
+
+  .nav-desktop {
+    display: none !important;
+  }
+
+  .burger-btn {
+    display: flex;
+  }
 }
 
 /* Hero */
@@ -863,6 +948,7 @@ footer {
   height: 40px;
   width: auto;
   object-fit: contain;
+  transition: height 0.2s;
 }
 
 .space-y-10 > * + * { margin-top: 2.5rem; }
