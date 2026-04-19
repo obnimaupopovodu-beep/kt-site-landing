@@ -574,17 +574,6 @@ export default function App() {
         </div>
       </section>
 
-      <footer id="contacts">
-        <div className="footer-content">
-          <div style={{ letterSpacing: '0.4em' }}>КУЛЬТУРА ТЕЛА</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', color: 'var(--text-gray)' }}>
-            <div>Москва</div>
-            <div>+7 (000) 000-00-00</div>
-            <div>Instagram</div>
-          </div>
-        </div>
-      </footer>
-
       <section className="map-section">
         <motion.div className="map-section-header" {...fadeUp}>
           <span className="eyebrow-tag">Мы на карте</span>
@@ -642,6 +631,17 @@ export default function App() {
           </motion.div>
         </div>
       </section>
+
+      <footer id="contacts">
+        <div className="footer-content">
+          <div style={{ letterSpacing: '0.4em' }}>КУЛЬТУРА ТЕЛА</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', color: 'var(--text-gray)' }}>
+            <div>Москва</div>
+            <div>+7 (000) 000-00-00</div>
+            <div>Instagram</div>
+          </div>
+        </div>
+      </footer>
 
       <AnimatePresence>
         {selectedService && (
