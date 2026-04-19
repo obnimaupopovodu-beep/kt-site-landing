@@ -1564,3 +1564,120 @@ footer {
   background: var(--neon);
   flex-shrink: 0;
 }
+
+/* ===== MOBILE RESPONSIVE FIXES ===== */
+
+/* Responsive section titles (replaces inline font-size: 3rem) */
+.section-title-responsive {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  margin-top: 0.5rem;
+  line-height: 1.2;
+}
+
+/* Specialist modal — scrollable on mobile */
+.specialist-modal-scrollable {
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,236,15,0.3) transparent;
+}
+
+.specialist-modal-scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+.specialist-modal-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255,236,15,0.3);
+  border-radius: 2px;
+}
+
+/* Close button for specialist modal */
+.modal-close-btn {
+  position: sticky;
+  top: 0;
+  float: right;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  transition: background 0.2s;
+  z-index: 10;
+}
+.modal-close-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+@media (max-width: 768px) {
+  /* Services grid — one column */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+
+  /* Specialist modal — near full screen */
+  .specialist-modal-content {
+    width: 94% !important;
+    max-width: none !important;
+    max-height: 88vh !important;
+    padding: 1.5rem !important;
+    border-radius: 1rem !important;
+  }
+
+  .specialist-modal-inner {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Section titles don't overflow */
+  .section-title-responsive {
+    letter-spacing: 0.08em;
+    font-size: clamp(1.3rem, 6vw, 2rem);
+  }
+
+  /* "Делимся опытом" section padding */
+  .py-32 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .px-8 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Trust/promo block */
+  .trust-card-premium {
+    padding: 1.5rem;
+  }
+
+  /* Overlay alignment for modals on mobile */
+  .modal-overlay {
+    align-items: flex-end;
+    padding-bottom: 0;
+  }
+
+  .modal-content {
+    width: 100% !important;
+    border-radius: 1rem 1rem 0 0 !important;
+    max-height: 88vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Keep location modal centered */
+  .location-modal-card {
+    max-height: 70vh;
+  }
+}
