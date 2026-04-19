@@ -229,18 +229,20 @@ export default function App() {
 
       <section className="marquee-band" aria-label="Ключевые направления студии">
         <div className="marquee-track">
-          <span>КУЛЬТУРА ТЕЛА</span>
-          <span>АППАРАТНЫЙ МАССАЖ</span>
-          <span>ОСТЕОПАТИЯ</span>
-          <span>КОРРЕКЦИЯ ФИГУРЫ</span>
-          <span>ВОССТАНОВЛЕНИЕ</span>
-          <span>МОСКВА</span>
-          <span>КУЛЬТУРА ТЕЛА</span>
-          <span>АППАРАТНЫЙ МАССАЖ</span>
-          <span>ОСТЕОПАТИЯ</span>
-          <span>КОРРЕКЦИЯ ФИГУРЫ</span>
-          <span>ВОССТАНОВЛЕНИЕ</span>
-          <span>МОСКВА</span>
+          <span>Сеть студий комплексной коррекции тела</span>
+          <span>Эндокринология</span>
+          <span>Диетология</span>
+          <span>Остеопатия</span>
+          <span>Массаж</span>
+          <span>LPG</span>
+          <span>Тренерство</span>
+          <span>Сеть студий комплексной коррекции тела</span>
+          <span>Эндокринология</span>
+          <span>Диетология</span>
+          <span>Остеопатия</span>
+          <span>Массаж</span>
+          <span>LPG</span>
+          <span>Тренерство</span>
         </div>
       </section>
 
@@ -334,7 +336,7 @@ export default function App() {
           <div className="animate-floatSlow" style={{ position: 'absolute', top: '20%', left: '50%', width: '500px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.06, transform: 'rotate(15deg)' }}></div>
         </div>
         <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
-          <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em' }}>
+          <h2 className="section-title-experience">
             Делимся многолетним опытом
           </h2>
           <p style={{ color: 'var(--text-gray)', fontSize: '1.1rem', marginTop: '2rem', lineHeight: 1.6, maxWidth: '800px' }}>
@@ -516,7 +518,7 @@ export default function App() {
             </div>
 
             <div className="achievement-row achievement-row--center">
-              <div className="bento-item large bento-item--flex">
+              <div className="bento-item medium bento-item--flex">
                 <div className="bento-item-top">
                   <span className="bento-tag">Social Impact</span>
                   <p className="bento-text">Благодарность за вклад в программу: "Вместе мы меняем жизнь к лучшему".</p>
