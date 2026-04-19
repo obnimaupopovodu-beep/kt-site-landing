@@ -692,7 +692,7 @@ footer {
 }
 
 .achievement-row--center .bento-item.large {
-  max-width: 80%;
+  max-width: 50%;
 }
 
 .achievement-row--center .bento-item.small {
@@ -1717,4 +1717,19 @@ footer {
 
 .bento-item--flex .video-thumbnail-container {
   margin-top: 0;
+}
+
+/* "Делимся многолетним опытом" — fluid title */
+.section-title-experience {
+  font-size: clamp(1.1rem, 4vw, 2.25rem);
+  font-weight: 200;
+  letter-spacing: clamp(0.05em, 1.5vw, 0.4em);
+  line-height: 1.2;
+}
+
+@media (max-width: 427px) {
+  .section-title-experience {
+    font-size: clamp(0.95rem, 5.5vw, 1.4rem);
+    letter-spacing: 0.05em;
+  }
 }
