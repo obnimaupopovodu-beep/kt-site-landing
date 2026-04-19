@@ -695,6 +695,10 @@ footer {
   max-width: 50%;
 }
 
+.achievement-row--center .bento-item.medium {
+  max-width: 420px;
+}
+
 .achievement-row--center .bento-item.small {
   max-width: 60%;
 }
