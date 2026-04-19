@@ -1681,3 +1681,40 @@ footer {
     max-height: 70vh;
   }
 }
+
+/* Bento flex layout — title top, media bottom */
+.bento-item--flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-item-top {
+  flex: 0 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.bento-item-bottom {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.bento-title {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #fff;
+  margin: 0.5rem 0 0.75rem;
+  line-height: 1.4;
+}
+
+.bento-item--flex .bento-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 0;
+}
+
+.bento-item--flex .video-thumbnail-container {
+  margin-top: 0;
+}
