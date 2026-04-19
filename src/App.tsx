@@ -375,7 +375,7 @@ export default function App() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '5rem' }}>
             <div>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--neon)', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Expertise</span>
-              <h2 style={{ fontSize: '3rem', fontWeight: 200, letterSpacing: '0.2em', marginTop: '0.5rem' }}>НАШИ СПЕЦИАЛИСТЫ</h2>
+              <h2 className="section-title-responsive">НАШИ СПЕЦИАЛИСТЫ</h2>
             </div>
             <div style={{ textAlign: 'right', color: 'var(--text-gray)', fontSize: '0.875rem', maxWidth: '300px', fontWeight: 200 }}>
               Команда профессионалов, объединенных общей философией заботы о теле.
@@ -446,7 +446,7 @@ export default function App() {
         <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ marginBottom: '5rem' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--neon)', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Recognition</span>
-            <h2 style={{ fontSize: '3rem', fontWeight: 200, letterSpacing: '0.2em', marginTop: '0.5rem' }}>НАШИ ДОСТИЖЕНИЯ</h2>
+            <h2 className="section-title-responsive">НАШИ ДОСТИЖЕНИЯ</h2>
           </div>
 
           <div className="flex flex-col gap-32 mb-32">
@@ -631,8 +631,9 @@ export default function App() {
 
         {selectedSpecialist && (
           <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedSpecialist(null)}>
-            <motion.div className="modal-content specialist-modal-content" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
-              <div className="grid md:grid-cols-2 gap-10 items-center">
+            <motion.div className="modal-content specialist-modal-content specialist-modal-scrollable" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+              <button className="modal-close-btn" onClick={() => setSelectedSpecialist(null)} aria-label="Закрыть">×</button>
+              <div className="grid md:grid-cols-2 gap-10 items-start specialist-modal-inner">
                 <div style={{ borderRadius: '1rem', overflow: 'hidden' }}>
                   <img src={selectedSpecialist.largeImage} alt={selectedSpecialist.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} referrerPolicy="no-referrer" />
                 </div>
