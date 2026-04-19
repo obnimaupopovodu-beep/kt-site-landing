@@ -449,77 +449,95 @@ export default function App() {
             <h2 className="section-title-responsive">НАШИ ДОСТИЖЕНИЯ</h2>
           </div>
 
-          <div className="flex flex-col gap-32 mb-32">
-            <div className="video-preview-row">
-              <div className="space-y-4">
-                <span className="bento-tag">YouTube</span>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 300, color: '#fff' }}>Остеопатия/ проблемы с чем справляется остеопатия</h3>
-                <p style={{ color: 'var(--text-gray)', fontWeight: 200 }}>Подробный разбор методов остеопатии и их влияния на здоровье организма в эфире федерального канала.</p>
-              </div>
-              <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://www.youtube.com/embed/dQw4w9WgXcQ')}>
-                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="YouTube Preview" referrerPolicy="no-referrer" />
-                <div className="play-overlay">
-                  <div className="play-icon">▶</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="video-preview-row">
-              <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://rutube.ru/play/embed/749ac3a4b28cfb758f9cdb917ac5b281/')}>
-                <img src="coverrut.png" alt="Rutube Preview" referrerPolicy="no-referrer" />
-                <div className="play-overlay">
-                  <div className="play-icon">▶</div>
-                </div>
-              </div>
-              <div className="space-y-4 text-right">
-                <span className="bento-tag">RuTube</span>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 300, color: '#fff' }}>Как избавиться от лишних килограммов, без вреда для здоровья?</h3>
-                <p style={{ color: 'var(--text-gray)', fontWeight: 200 }}>Экспертное мнение о безопасном похудении и коррекции фигуры без стресса для организма.</p>
-              </div>
-            </div>
-          </div>
-
           <div className="achievements-rows">
+
+            {/* Video cards row */}
             <div className="achievement-row achievement-row--two-col">
-              <div className="bento-item medium">
-                <img src="award2.jpg" className="bento-img" style={{ objectPosition: 'top' }} alt="Award 2" referrerPolicy="no-referrer" />
-                <div>
+
+              {/* YouTube card */}
+              <div className="bento-item medium bento-item--flex">
+                <div className="bento-item-top">
+                  <span className="bento-tag">YouTube</span>
+                  <h3 className="bento-title">Остеопатия/ проблемы с чем справляется остеопатия</h3>
+                  <p className="bento-text">Подробный разбор методов остеопатии и их влияния на здоровье организма в эфире федерального канала.</p>
+                </div>
+                <div className="bento-item-bottom">
+                  <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://www.youtube.com/embed/dQw4w9WgXcQ')}>
+                    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="YouTube Preview" referrerPolicy="no-referrer" />
+                    <div className="play-overlay">
+                      <div className="play-icon">▶</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* RuTube card */}
+              <div className="bento-item medium bento-item--flex">
+                <div className="bento-item-top">
+                  <span className="bento-tag">RuTube</span>
+                  <h3 className="bento-title">Как избавиться от лишних килограммов, без вреда для здоровья?</h3>
+                  <p className="bento-text">Экспертное мнение о безопасном похудении и коррекции фигуры без стресса для организма.</p>
+                </div>
+                <div className="bento-item-bottom">
+                  <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://rutube.ru/play/embed/749ac3a4b28cfb758f9cdb917ac5b281/')}>
+                    <img src="coverrut.png" alt="Rutube Preview" referrerPolicy="no-referrer" />
+                    <div className="play-overlay">
+                      <div className="play-icon">▶</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Awards row */}
+            <div className="achievement-row achievement-row--two-col">
+              <div className="bento-item medium bento-item--flex">
+                <div className="bento-item-top">
                   <span className="bento-tag">Business Forum</span>
                   <p className="bento-text">Призер бизнес форума "Лучшая в своем деле" в номинации "Красота и здоровье".</p>
                 </div>
+                <div className="bento-item-bottom">
+                  <img src="award2.jpg" className="bento-img" style={{ objectPosition: 'top' }} alt="Award 2" referrerPolicy="no-referrer" />
+                </div>
               </div>
 
-              <div className="bento-item medium">
-                <div style={{ position: 'relative', height: '360px', marginBottom: '1.5rem' }}>
-                  <img src="award3_1.jpg" style={{ position: 'absolute', width: '70%', height: '100%', objectFit: 'cover', borderRadius: '4px', zIndex: 2 }} alt="Award 3.1" referrerPolicy="no-referrer" />
-                </div>
-                <div>
+              <div className="bento-item medium bento-item--flex">
+                <div className="bento-item-top">
                   <span className="bento-tag">Championship</span>
                   <p className="bento-text">Многократный победитель Международных чемпионатов по массажу.</p>
                 </div>
-              </div>
-            </div>
-
-            <div className="achievement-row achievement-row--center">
-              <div className="bento-item large">
-                <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-                  <img src="socialimpact.jpg" className="bento-img" style={{ width: '40%', marginBottom: 0 }} alt="Award 4" referrerPolicy="no-referrer" />
-                  <div>
-                    <span className="bento-tag">Social Impact</span>
-                    <p className="bento-text">Благодарность за вклад в программу: "Вместе мы меняем жизнь к лучшему".</p>
+                <div className="bento-item-bottom">
+                  <div style={{ position: 'relative', height: '260px' }}>
+                    <img src="award3_1.jpg" style={{ position: 'absolute', width: '70%', height: '100%', objectFit: 'cover', borderRadius: '4px', zIndex: 2 }} alt="Award 3.1" referrerPolicy="no-referrer" />
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="achievement-row achievement-row--center">
-              <div className="bento-item small">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <p className="bento-text" style={{ maxWidth: '60%' }}>Мы в журнале: Moda Topical — журнал для современных женщин.</p>
+              <div className="bento-item large bento-item--flex">
+                <div className="bento-item-top">
+                  <span className="bento-tag">Social Impact</span>
+                  <p className="bento-text">Благодарность за вклад в программу: "Вместе мы меняем жизнь к лучшему".</p>
+                </div>
+                <div className="bento-item-bottom">
+                  <img src="socialimpact.jpg" className="bento-img" alt="Award 4" referrerPolicy="no-referrer" />
+                </div>
+              </div>
+            </div>
+
+            <div className="achievement-row achievement-row--center">
+              <div className="bento-item small bento-item--flex">
+                <div className="bento-item-top">
+                  <p className="bento-text">Мы в журнале: Moda Topical — журнал для современных женщин.</p>
+                </div>
+                <div className="bento-item-bottom" style={{ display: 'flex', justifyContent: 'center' }}>
                   <img src="award5.png" className="bento-img" style={{ width: '80px', height: '80px', borderRadius: '50%', marginBottom: 0 }} alt="Award 5" referrerPolicy="no-referrer" />
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
