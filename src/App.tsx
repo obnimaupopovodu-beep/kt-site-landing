@@ -397,7 +397,6 @@ export default function App() {
                 </div>
                 <div className="specialist-row-body">
                   <div className="specialist-row-meta">
-                    <span className="spec-number-inline">/ 0{idx + 1}</span>
                     <span className="spec-role-inline">{spec.role}</span>
                   </div>
                   <h3 className="specialist-row-name">{spec.name}</h3>
@@ -516,8 +515,8 @@ export default function App() {
                   <span className="bento-tag">Championship</span>
                   <p className="bento-text">Многократный победитель Международных чемпионатов по массажу.</p>
                 </div>
-                <div className="bento-item-bottom">
-                  <img src="award3_1.jpg" className="bento-img" style={{ objectFit: 'cover', borderRadius: '4px', width: '100%', height: '260px' }} alt="Award 3.1" referrerPolicy="no-referrer" />
+                <div className="bento-item-bottom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '260px' }}>
+                  <img src="award3_1.jpg" className="bento-img" style={{ objectFit: 'cover', borderRadius: '4px', width: '100%', height: '260px', objectPosition: 'center' }} alt="Award 3.1" referrerPolicy="no-referrer" />
                 </div>
               </div>
             </div>
