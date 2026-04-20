@@ -517,9 +517,7 @@ export default function App() {
                   <p className="bento-text">Многократный победитель Международных чемпионатов по массажу.</p>
                 </div>
                 <div className="bento-item-bottom">
-                  <div style={{ position: 'relative', height: '260px' }}>
-                    <img src="award3_1.jpg" style={{ position: 'absolute', width: '70%', height: '100%', objectFit: 'cover', borderRadius: '4px', zIndex: 2 }} alt="Award 3.1" referrerPolicy="no-referrer" />
-                  </div>
+                  <img src="award3_1.jpg" className="bento-img" style={{ objectFit: 'cover', borderRadius: '4px', width: '100%', height: '260px' }} alt="Award 3.1" referrerPolicy="no-referrer" />
                 </div>
               </div>
             </div>
@@ -541,8 +539,8 @@ export default function App() {
                 <div className="bento-item-top">
                   <p className="bento-text">Мы в журнале: Moda Topical — журнал для современных женщин.</p>
                 </div>
-                <div className="bento-item-bottom" style={{ display: 'flex', justifyContent: 'center' }}>
-                  <img src="award5.png" className="bento-img" style={{ width: '80px', height: '80px', borderRadius: '50%', marginBottom: 0 }} alt="Award 5" referrerPolicy="no-referrer" />
+                <div className="bento-item-bottom">
+                  <img src="award5.png" className="bento-img" style={{ width: '100%', height: 'auto', objectFit: 'contain', borderRadius: '4px' }} alt="Award 5" referrerPolicy="no-referrer" />
                 </div>
               </div>
             </div>
