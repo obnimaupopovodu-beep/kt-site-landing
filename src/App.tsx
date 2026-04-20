@@ -472,7 +472,7 @@ export default function App() {
                 </div>
                 <div className="bento-item-bottom">
                   <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://www.youtube.com/embed=kwezmgdEY3k')}>
-                    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="YouTube Preview" referrerPolicy="no-referrer" />
+                    <img src="https://img.youtube.com/vi/kwezmgdEY3k/maxresdefault.jpg" alt="YouTube Preview" referrerPolicy="no-referrer" />
                     <div className="play-overlay">
                       <div className="play-icon">▶</div>
                     </div>
