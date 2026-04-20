@@ -660,9 +660,9 @@ export default function App() {
           <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedSpecialist(null)}>
             <motion.div className="modal-content specialist-modal-content specialist-modal-scrollable" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
               <button className="modal-close-btn" onClick={() => setSelectedSpecialist(null)} aria-label="Закрыть">×</button>
-              <div className="grid md:grid-cols-2 gap-10 items-start specialist-modal-inner">
-                <div>
-                  <img src={selectedSpecialist.largeImage} alt={selectedSpecialist.name} style={{ width: '100%', height: 'auto', display: 'block' }} referrerPolicy="no-referrer" />
+              <div className="grid md:grid-cols-2 gap-10 items-center specialist-modal-inner">
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <img src={selectedSpecialist.largeImage} alt={selectedSpecialist.name} style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '1rem', overflow: 'hidden' }} referrerPolicy="no-referrer" />
                 </div>
                 <div>
                   <h2 style={{ fontSize: '1.875rem', fontWeight: 600, marginBottom: '1.5rem', color: 'var(--neon)' }}>{selectedSpecialist.name}</h2>
