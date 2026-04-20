@@ -572,6 +572,7 @@ header {
 footer {
   border-top: 1px solid var(--neon);
   padding: 3rem 2rem;
+  margin-top: 5rem;
   font-size: 0.875rem;
 }
 
