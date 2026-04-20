@@ -645,8 +645,8 @@ export default function App() {
 
       <AnimatePresence>
         {selectedService && (
-          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedService(null)}>
-            <motion.div className="modal-content" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
+          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2, ease: "easeOut" }} onClick={() => setSelectedService(null)}>
+            <motion.div className="modal-content" initial={{ scale: 0.97, opacity: 0, y: 8 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.97, opacity: 0, y: 8 }} transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }} onClick={(e) => e.stopPropagation()}>
               <h3 style={{ fontSize: '1.875rem', fontWeight: 700, marginBottom: '1.5rem' }}>{selectedService.title}</h3>
               <p style={{ color: '#d1d5db', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{selectedService.description}</p>
             </motion.div>
@@ -654,8 +654,8 @@ export default function App() {
         )}
 
         {selectedSpecialist && (
-          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedSpecialist(null)}>
-            <motion.div className="modal-content specialist-modal-content specialist-modal-scrollable" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2, ease: "easeOut" }} onClick={() => setSelectedSpecialist(null)}>
+            <motion.div className="modal-content specialist-modal-content specialist-modal-scrollable" initial={{ scale: 0.97, opacity: 0, y: 12 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.97, opacity: 0, y: 12 }} transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }} onClick={(e: React.MouseEvent) => e.stopPropagation()}>
               <button className="modal-close-btn" onClick={() => setSelectedSpecialist(null)} aria-label="Закрыть">×</button>
               <div className="grid md:grid-cols-2 gap-10 items-center specialist-modal-inner">
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -671,8 +671,8 @@ export default function App() {
         )}
 
         {videoUrl && (
-          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setVideoUrl(null)}>
-            <motion.div className="modal-content video-modal-content" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
+          <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2, ease: "easeOut" }} onClick={() => setVideoUrl(null)}>
+            <motion.div className="modal-content video-modal-content" initial={{ scale: 0.97, opacity: 0, y: 8 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.97, opacity: 0, y: 8 }} transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }} onClick={(e) => e.stopPropagation()}>
               <iframe src={videoUrl} className="video-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </motion.div>
           </motion.div>
