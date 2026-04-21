@@ -192,24 +192,19 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [certModal, setCertModal] = useState<string | null>(null);
 
+  const scrollLockRef = React.useRef<number | null>(null);
+
   useEffect(() => {
     const isOpen = !!(selectedService || selectedSpecialist || videoUrl || showLocationModal || certModal);
     if (isOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
-      document.body.dataset.scrollY = String(scrollY);
-    } else {
-      const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.width = '';
-      window.scrollTo(0, scrollY);
+      // Сохраняем позицию только при открытии
+      scrollLockRef.current = window.scrollY;
+      document.body.style.overflow = 'hidden';
+    } else if (scrollLockRef.current !== null) {
+      // Восстанавливаем только если реально было открыто
+      document.body.style.overflow = '';
+      window.scrollTo({ top: scrollLockRef.current, behavior: 'instant' });
+      scrollLockRef.current = null;
     }
   }, [selectedService, selectedSpecialist, videoUrl, showLocationModal, certModal]);
 
