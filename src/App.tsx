@@ -31,6 +31,12 @@ const staggerContainer = {
   viewport: { once: true, amount: 0.15 }
 };
 
+
+const CERT_IMAGES: string[] = [
+  // Добавьте пути к изображениям сертификатов в /public
+  // Например: '/cert1.jpg', '/cert2.jpg', ...
+];
+
 interface Service {
   title: string;
   description: string;
@@ -147,14 +153,15 @@ export default function App() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [showLocationModal, setShowLocationModal] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [certModal, setCertModal] = useState<string | null>(null);
 
   useEffect(() => {
-    if (selectedService || selectedSpecialist || videoUrl || showLocationModal) {
+    if (selectedService || selectedSpecialist || videoUrl || showLocationModal || certModal) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-  }, [selectedService, selectedSpecialist, videoUrl, showLocationModal]);
+  }, [selectedService, selectedSpecialist, videoUrl, showLocationModal, certModal]);
 
   return (
     <div className="app">
@@ -561,6 +568,85 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      <div className="section-divider"><span></span></div>
+
+      <section className="py-32 px-8 section-relative certs-section">
+        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{ marginBottom: '3rem' }}>
+            <span className="eyebrow-tag">Квалификация</span>
+            <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', marginTop: '1rem' }}>
+              СЕРТИФИКАТЫ
+            </h2>
+            <p style={{ color: 'var(--text-gray)', marginTop: '1rem', fontWeight: 300, fontSize: '0.95rem', letterSpacing: '0.05em' }}>
+              Листайте — подтверждённая квалификация наших специалистов
+            </p>
+          </div>
+
+          <div className="certs-track-wrapper">
+            <motion.div
+              className="certs-track"
+              drag="x"
+              dragConstraints={{ left: -((CERT_IMAGES.length - 1) * 280), right: 0 }}
+              dragElastic={0.08}
+              dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
+              whileTap={{ cursor: 'grabbing' }}
+              style={{ cursor: 'grab' }}
+            >
+              {CERT_IMAGES.map((src, idx) => (
+                <motion.div
+                  key={idx}
+                  className="cert-card"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setCertModal(src)}
+                >
+                  <img
+                    src={src}
+                    alt={`Сертификат ${idx + 1}`}
+                    className="cert-img"
+                    draggable={false}
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="cert-overlay">
+                    <span className="cert-overlay-icon">⤢</span>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          <p className="certs-hint">
+            <span>←</span> свайп для просмотра <span>→</span>
+          </p>
+        </div>
+      </section>
+
+      <AnimatePresence>
+        {certModal && (
+          <motion.div
+            className="modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setCertModal(null)}
+          >
+            <motion.div
+              className="cert-modal-content"
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="modal-close-btn" onClick={() => setCertModal(null)}>✕</button>
+              <img src={certModal} alt="Сертификат" style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', display: 'block' }} draggable={false} referrerPolicy="no-referrer" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
 
       <section className="py-32 px-8 section-relative" id="reviews" style={{ backgroundColor: '#0a0a0a' }}>
         <div className="section-shapes">
