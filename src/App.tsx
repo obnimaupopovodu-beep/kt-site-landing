@@ -203,7 +203,7 @@ export default function App() {
           <motion.div className="hero-side-panel" initial={{ opacity: 0, x: 36 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}>
             <div className="hero-side-card hero-side-card--lead">
               <span className="hero-card-kicker">Focus</span>
-              <p>Современный подход к телу, восстановлению и эстетике без визуального шума и клишированного “салонного” дизайна.</p>
+              <p>Комплексная коррекция тела не агрессивными физиологичными методами для вашего преображения. Красота через здоровье.</p>
             </div>
             <div className="hero-stats-grid">
               <div className="hero-side-card">
