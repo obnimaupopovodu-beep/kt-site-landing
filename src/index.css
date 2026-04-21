@@ -1972,3 +1972,8 @@ footer {
     padding: 0.5rem 1rem;
   }
 }
+
+/* Кнопка Наверх — якорь на самый верх без офсета */
+#top {
+  scroll-margin-top: 0;
+}
