@@ -193,10 +193,23 @@ export default function App() {
   const [certModal, setCertModal] = useState<string | null>(null);
 
   useEffect(() => {
-    if (selectedService || selectedSpecialist || videoUrl || showLocationModal || certModal) {
-      document.body.style.overflow = 'hidden';
+    const isOpen = !!(selectedService || selectedSpecialist || videoUrl || showLocationModal || certModal);
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      document.body.dataset.scrollY = String(scrollY);
     } else {
-      document.body.style.overflow = 'auto';
+      const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
     }
   }, [selectedService, selectedSpecialist, videoUrl, showLocationModal, certModal]);
 
