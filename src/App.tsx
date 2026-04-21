@@ -771,8 +771,10 @@ export default function App() {
 
       <footer id="contacts">
         <div className="footer-content">
-          <div style={{ letterSpacing: '0.4em' }}>КУЛЬТУРА ТЕЛА</div>
-          <a href="#top" className="back-to-top-btn">Наверх ↑</a>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'flex-start' }}>
+            <div style={{ letterSpacing: '0.4em' }}>КУЛЬТУРА ТЕЛА</div>
+            <a href="#top" className="back-to-top-btn">Наверх ↑</a>
+          </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem', color: 'var(--text-gray)' }}>
             
             <div>Москва</div>
