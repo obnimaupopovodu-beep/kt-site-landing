@@ -201,7 +201,7 @@ export default function App() {
   }, [selectedService, selectedSpecialist, videoUrl, showLocationModal, certModal]);
 
   return (
-    <div className="app">
+    <div className="app" id="top">
       <header>
         <div className="header-inner">
           <img src="/logo.png" alt="КУЛЬТУРА ТЕЛА" className="header-logo" referrerPolicy="no-referrer" />
