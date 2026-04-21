@@ -427,7 +427,7 @@ export default function App() {
           </p>
 
           <button className="btn-figurative">
-            <a href="https://api.whatsapp.com/send?phone=79262244579&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC">связаться со специалистом</a>
+            <a href="https://api.whatsapp.com/send?phone=79262244579&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC" target="_blank" rel="noopener noreferrer">связаться со специалистом</a>
           </button>
         </div>
       </motion.section>
@@ -536,7 +536,7 @@ export default function App() {
                   <p className="bento-text">Подробный разбор методов остеопатии и их влияния на здоровье организма в эфире федерального канала.</p>
                 </div>
                 <div className="bento-item-bottom">
-                  <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://www.youtube.com/embed=kwezmgdEY3k')}>
+                  <div className="video-thumbnail-container" onClick={() => setVideoUrl('https://www.youtube.com/embed/kwezmgdEY3k')}>
                     <img src="https://img.youtube.com/vi/kwezmgdEY3k/maxresdefault.jpg" alt="YouTube Preview" referrerPolicy="no-referrer" />
                     <div className="play-overlay">
                       <div className="play-icon">▶</div>
@@ -650,6 +650,7 @@ export default function App() {
                     src={src}
                     alt={`Сертификат ${idx + 1}`}
                     className="cert-img"
+                    loading="lazy"
                     draggable={false}
                     referrerPolicy="no-referrer"
                   />
@@ -706,13 +707,13 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="widget-container-styled">
               <div style={{ width: '100%', height: '600px', overflow: 'hidden', position: 'relative' }}>
-                <iframe style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }} src="https://yandex.ru/maps-reviews-widget/59383899868?comments"></iframe>
+                <iframe style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }} sandbox="allow-scripts allow-same-origin allow-popups" src="https://yandex.ru/maps-reviews-widget/59383899868?comments"></iframe>
               </div>
             </div>
 
             <div className="widget-container-styled">
               <div style={{ width: '100%', height: '600px', overflow: 'hidden', position: 'relative' }}>
-                <iframe style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }} src="https://yandex.ru/maps-reviews-widget/96435565736?comments"></iframe>
+                <iframe style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }} sandbox="allow-scripts allow-same-origin allow-popups" src="https://yandex.ru/maps-reviews-widget/96435565736?comments"></iframe>
               </div>
             </div>
           </div>
@@ -787,9 +788,9 @@ export default function App() {
             
             <div>Москва</div>
             <div>+7 (965) 331-33-83</div>
-            <div><a href="https://www.instagram.com/kultura.tela/">Instagram</a></div>
-            <div><a href="https://t.me/kultura_tela_msk">Telegram</a></div>
-            <div><a href="https://api.whatsapp.com/send?phone=79653313383&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC">WhatsApp</a></div>
+            <div><a href="https://www.instagram.com/kultura.tela/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+            <div><a href="https://t.me/kultura_tela_msk" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+            <a href="https://api.whatsapp.com/send?phone=79262244579&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC" target="_blank" rel="noopener noreferrer">связаться со специалистом</a>
           </div>
         </div>
       </footer>
@@ -824,7 +825,7 @@ export default function App() {
         {videoUrl && (
           <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2, ease: "easeOut" }} onClick={() => setVideoUrl(null)}>
             <motion.div className="modal-content video-modal-content" initial={{ scale: 0.97, opacity: 0, y: 8 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.97, opacity: 0, y: 8 }} transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }} onClick={(e) => e.stopPropagation()}>
-              <iframe src={videoUrl} className="video-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              <iframe src={videoUrl} className="video-iframe" sandbox="allow-scripts allow-same-origin allow-popups allow-presentation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </motion.div>
           </motion.div>
         )}
