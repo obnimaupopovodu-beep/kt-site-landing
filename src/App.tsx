@@ -191,8 +191,19 @@ export default function App() {
   const [showLocationModal, setShowLocationModal] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [certModal, setCertModal] = useState<string | null>(null);
+  const [enableDesktopScrollAnimations, setEnableDesktopScrollAnimations] = useState<boolean>(false);
 
   const scrollLockRef = React.useRef<number | null>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 769px)');
+    const updateAnimationMode = () => setEnableDesktopScrollAnimations(mediaQuery.matches);
+
+    updateAnimationMode();
+    mediaQuery.addEventListener('change', updateAnimationMode);
+
+    return () => mediaQuery.removeEventListener('change', updateAnimationMode);
+  }, []);
 
   useEffect(() => {
     const isOpen = !!(selectedService || selectedSpecialist || videoUrl || showLocationModal || certModal);
@@ -314,7 +325,15 @@ export default function App() {
 
       <div className="section-divider"><span></span></div>
 
-      <section className="py-32 px-8 section-relative" id="service">
+      <motion.section
+        className="py-32 px-8 section-relative"
+        id="service"
+        initial={enableDesktopScrollAnimations ? fadeUp.initial : false}
+        whileInView={enableDesktopScrollAnimations ? fadeUp.whileInView : undefined}
+        animate={!enableDesktopScrollAnimations ? { opacity: 1, y: 0 } : undefined}
+        viewport={enableDesktopScrollAnimations ? fadeUp.viewport : undefined}
+        transition={fadeUp.transition}
+      >
         <div className="section-shapes">
           <div className="animate-floatSlow" style={{ position: 'absolute', top: '3rem', right: '6rem', width: '12rem', height: '12rem', border: '1px solid var(--neon)', opacity: 0.08, transform: 'rotate(20deg)' }}></div>
           <div className="animate-rotateSlow" style={{ position: 'absolute', bottom: '4rem', left: '3rem', width: '16rem', height: '16rem', border: '1px solid var(--neon)', opacity: 0.06 }}></div>
@@ -333,9 +352,23 @@ export default function App() {
               </p>
             </div>
           </div>
-          <div className="services-grid md:grid-cols-3">
+          <motion.div
+            className="services-grid md:grid-cols-3"
+            variants={enableDesktopScrollAnimations ? staggerContainer : undefined}
+            initial={enableDesktopScrollAnimations ? 'initial' : false}
+            whileInView={enableDesktopScrollAnimations ? 'whileInView' : undefined}
+            animate={!enableDesktopScrollAnimations ? { opacity: 1 } : undefined}
+            viewport={enableDesktopScrollAnimations ? { once: true, amount: 0.15 } : undefined}
+          >
             {SERVICES.map((service, idx) => (
-              <div key={idx} className="service-card group">
+              <motion.div
+                key={idx}
+                className="service-card group"
+                variants={enableDesktopScrollAnimations ? fadeUp : undefined}
+                initial={!enableDesktopScrollAnimations ? { opacity: 1, y: 0 } : undefined}
+                animate={!enableDesktopScrollAnimations ? { opacity: 1, y: 0 } : undefined}
+                transition={fadeUp.transition}
+              >
                 <div className="border-line-container">
                   <div className="border-line border-top"></div>
                   <div className="border-line border-right"></div>
@@ -364,11 +397,11 @@ export default function App() {
                   <span>ПОДРОБНЕЕ</span>
                   <ArrowRight size={16} />
                 </button>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       <div className="section-divider section-divider--soft"><span></span></div>
 
@@ -434,7 +467,16 @@ export default function App() {
 
       <div className="section-divider section-divider--soft"><span></span></div>
 
-      <section className="" id="goats" style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden', paddingTop: '2rem', paddingBottom: '8rem' }}>
+      <motion.section
+        className=""
+        id="goats"
+        style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden', paddingTop: '2rem', paddingBottom: '8rem' }}
+        initial={enableDesktopScrollAnimations ? fadeUp.initial : false}
+        whileInView={enableDesktopScrollAnimations ? fadeUp.whileInView : undefined}
+        animate={!enableDesktopScrollAnimations ? { opacity: 1, y: 0 } : undefined}
+        viewport={enableDesktopScrollAnimations ? fadeUp.viewport : undefined}
+        transition={fadeUp.transition}
+      >
         <div className="specialists-shapes">
           <div className="animate-rotateSlow" style={{ position: 'absolute', top: '6rem', right: '4rem', width: '20rem', height: '20rem', border: '1px solid var(--neon)', opacity: 0.12 }}></div>
           <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '8rem', left: '2rem', width: '14rem', height: '14rem', border: '1px solid var(--neon)', opacity: 0.1, transform: 'rotate(18deg)' }}></div>
@@ -454,9 +496,24 @@ export default function App() {
             </div>
           </div>
 
-          <div className="specialists-list">
+          <motion.div
+            className="specialists-list"
+            variants={enableDesktopScrollAnimations ? staggerContainer : undefined}
+            initial={enableDesktopScrollAnimations ? 'initial' : false}
+            whileInView={enableDesktopScrollAnimations ? 'whileInView' : undefined}
+            animate={!enableDesktopScrollAnimations ? { opacity: 1 } : undefined}
+            viewport={enableDesktopScrollAnimations ? { once: true, amount: 0.1 } : undefined}
+          >
             {SPECIALISTS.map((spec, idx) => (
-              <div key={idx} className="specialist-row" onClick={() => setSelectedSpecialist(spec)}>
+              <motion.div
+                key={idx}
+                className="specialist-row"
+                onClick={() => setSelectedSpecialist(spec)}
+                variants={enableDesktopScrollAnimations ? fadeUp : undefined}
+                initial={!enableDesktopScrollAnimations ? { opacity: 1, y: 0 } : undefined}
+                animate={!enableDesktopScrollAnimations ? { opacity: 1, y: 0 } : undefined}
+                transition={fadeUp.transition}
+              >
                 <div className="specialist-row-img">
                   <img src={spec.image} alt={spec.name} referrerPolicy="no-referrer" />
                   <div className="specialist-row-accent"></div>
@@ -469,11 +526,11 @@ export default function App() {
                   <p className="specialist-row-desc">{spec.description}</p>
                   <button className="specialist-row-btn">Подробнее <span>→</span></button>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       <div className="section-divider"><span></span></div>
 
