@@ -1774,3 +1774,23 @@ footer {
     min-height: auto;
   }
 }
+
+/* Services grid: 769–1309px — 2 колонки в ряд */
+@media (min-width: 769px) and (max-width: 1309px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+
+  .service-card {
+    padding: 2rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+  }
+}
