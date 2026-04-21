@@ -375,7 +375,7 @@ export default function App() {
           </p>
 
           <button className="btn-figurative">
-            связаться со специалистом
+            <a href="https://api.whatsapp.com/send?phone=79262244579&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC">связаться со специалистом</a>
           </button>
         </div>
       </motion.section>
@@ -651,8 +651,10 @@ export default function App() {
           <div style={{ letterSpacing: '0.4em' }}>КУЛЬТУРА ТЕЛА</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', color: 'var(--text-gray)' }}>
             <div>Москва</div>
-            <div>+7 (000) 000-00-00</div>
-            <div>Instagram</div>
+            <div>+7 (965) 331-33-83</div>
+            <div><a href="https://www.instagram.com/kultura.tela/">Instagram</a></div>
+            <div><a href="https://t.me/kultura_tela_msk">Telegram</a></div>
+            <div><a href="https://api.whatsapp.com/send?phone=79653313383&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC">WhatsApp</a></div>
           </div>
         </div>
       </footer>
