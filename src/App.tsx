@@ -314,7 +314,7 @@ export default function App() {
 
       <div className="section-divider"><span></span></div>
 
-      <motion.section className="py-32 px-8 section-relative" id="service" {...fadeUp}>
+      <section className="py-32 px-8 section-relative" id="service">
         <div className="section-shapes">
           <div className="animate-floatSlow" style={{ position: 'absolute', top: '3rem', right: '6rem', width: '12rem', height: '12rem', border: '1px solid var(--neon)', opacity: 0.08, transform: 'rotate(20deg)' }}></div>
           <div className="animate-rotateSlow" style={{ position: 'absolute', bottom: '4rem', left: '3rem', width: '16rem', height: '16rem', border: '1px solid var(--neon)', opacity: 0.06 }}></div>
@@ -333,9 +333,9 @@ export default function App() {
               </p>
             </div>
           </div>
-          <motion.div className="services-grid md:grid-cols-3" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.15 }}>
+          <div className="services-grid md:grid-cols-3">
             {SERVICES.map((service, idx) => (
-              <motion.div key={idx} className="service-card group" variants={fadeUp}>
+              <div key={idx} className="service-card group">
                 <div className="border-line-container">
                   <div className="border-line border-top"></div>
                   <div className="border-line border-right"></div>
@@ -364,11 +364,11 @@ export default function App() {
                   <span>ПОДРОБНЕЕ</span>
                   <ArrowRight size={16} />
                 </button>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
       <div className="section-divider section-divider--soft"><span></span></div>
 
@@ -434,7 +434,7 @@ export default function App() {
 
       <div className="section-divider section-divider--soft"><span></span></div>
 
-      <motion.section className="" id="goats" style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden', paddingTop: '2rem', paddingBottom: '8rem' }} {...fadeUp}>
+      <section className="" id="goats" style={{ backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden', paddingTop: '2rem', paddingBottom: '8rem' }}>
         <div className="specialists-shapes">
           <div className="animate-rotateSlow" style={{ position: 'absolute', top: '6rem', right: '4rem', width: '20rem', height: '20rem', border: '1px solid var(--neon)', opacity: 0.12 }}></div>
           <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '8rem', left: '2rem', width: '14rem', height: '14rem', border: '1px solid var(--neon)', opacity: 0.1, transform: 'rotate(18deg)' }}></div>
@@ -454,9 +454,9 @@ export default function App() {
             </div>
           </div>
 
-          <motion.div className="specialists-list" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true, amount: 0.1 }}>
+          <div className="specialists-list">
             {SPECIALISTS.map((spec, idx) => (
-              <motion.div key={idx} className="specialist-row" onClick={() => setSelectedSpecialist(spec)} variants={fadeUp}>
+              <div key={idx} className="specialist-row" onClick={() => setSelectedSpecialist(spec)}>
                 <div className="specialist-row-img">
                   <img src={spec.image} alt={spec.name} referrerPolicy="no-referrer" />
                   <div className="specialist-row-accent"></div>
@@ -469,11 +469,11 @@ export default function App() {
                   <p className="specialist-row-desc">{spec.description}</p>
                   <button className="specialist-row-btn">Подробнее <span>→</span></button>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
       <div className="section-divider"><span></span></div>
 
