@@ -274,8 +274,8 @@ export default function App() {
               <p className="hero-subtitle">Студия коррекции фигуры в Москве</p>
             </div>
             <p className="hero-summary">
-              Аппаратные и ручные методики, остеопатия, эндокринология и восстановительные практики в одном
-              пространстве с вниманием к телу, здоровью и долгосрочному результату.
+              это не просто коррекция фигуры.
+              Это синергия искусства и науки, направленная на преображение вашего тела.
             </p>
             <div className="hero-proof-strip" aria-label="Преимущества студии">
               <span>30+ лет практики</span>
@@ -291,7 +291,12 @@ export default function App() {
           <motion.div className="hero-side-panel" initial={{ opacity: 0, x: 36 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}>
             <div className="hero-side-card hero-side-card--lead">
               <span className="hero-card-kicker">Focus</span>
-              <p>Комплексная коррекция тела не агрессивными, физиологичными методами для вашего преображения. Красота через здоровье.</p>
+              <p>Наш подход -</p>
+комплексная коррекция тела:
+<p>- остеопатия</p>
+<p>- эндокринология</p>
+<p>- тренерство</p>
+<p>- массаж</p>
             </div>
             <div className="hero-stats-grid">
               <div className="hero-side-card">
