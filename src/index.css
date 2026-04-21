@@ -1414,6 +1414,22 @@ footer {
 .specialist-row-btn:hover {
   gap: 1rem;
 }
+.back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-white);
+  text-decoration: none;
+  border: 1px solid rgba(255, 236, 15, 0.25);
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.back-to-top-btn:hover {
+  background: rgba(255, 236, 15, 0.08);
+  border-color: rgba(255, 236, 15, 0.45);
+}
 
 @media (max-width: 1024px) {
   .specialists-list {
@@ -1641,6 +1657,7 @@ footer {
 .modal-close-btn:hover {
   background: rgba(255,255,255,0.15);
 }
+
 
 @media (max-width: 768px) {
   /* Services grid — one column */

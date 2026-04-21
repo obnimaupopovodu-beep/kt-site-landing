@@ -33,6 +33,43 @@ const staggerContainer = {
 
 
 const CERT_IMAGES: string[] = [
+  '/cert1.jpg',
+  '/cert2.jpg',
+  '/cert3.jpg',
+  '/cert4.jpg',
+  '/cert5.jpg',
+  '/cert6.jpg',
+  '/cert7.jpg',
+  '/cert8.jpg',
+  '/cert9.jpg',
+  '/cert10.jpg',
+  '/cert11.jpg',
+  '/cert12.jpg',
+  '/cert13.jpg',
+  '/cert14.jpg',
+  '/cert15.jpg',
+  '/cert16.jpg',
+  '/cert17.jpg',
+  '/cert18.jpg',
+  '/cert19.jpg',
+  '/cert20.jpg',
+  '/cert21.jpg',
+  '/cert22.jpg',
+  '/cert23.jpg',
+  '/cert24.jpg',
+  '/cert25.jpg',
+  '/cert26.jpeg',
+  '/cert27.jpeg',
+  '/cert28.jpeg',
+  '/cert29.jpeg',
+  '/cert30.jpeg',
+  '/cert31.jpeg',
+  '/cert32.jpeg',
+  '/cert33.jpg',
+  '/cert34.jpg',
+  '/cert35.jpg',
+  '/cert36.jpg',
+  
   // Добавьте пути к изображениям сертификатов в /public
   // Например: '/cert1.jpg', '/cert2.jpg', ...
 ];
@@ -242,7 +279,7 @@ export default function App() {
             </div>
           </motion.div>
         </div>
-
+        <div className="app" id="top"></div>
         <div className="nike-image animate-floatSlow">
           <img src="nike.png" alt="Ника Самофракийская" style={{ width: '100%', objectFit: 'contain' }} referrerPolicy="no-referrer" />
         </div>
@@ -735,7 +772,9 @@ export default function App() {
       <footer id="contacts">
         <div className="footer-content">
           <div style={{ letterSpacing: '0.4em' }}>КУЛЬТУРА ТЕЛА</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', color: 'var(--text-gray)' }}>
+          <a href="#top" className="back-to-top-btn">Наверх ↑</a>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem', color: 'var(--text-gray)' }}>
+            
             <div>Москва</div>
             <div>+7 (965) 331-33-83</div>
             <div><a href="https://www.instagram.com/kultura.tela/">Instagram</a></div>
