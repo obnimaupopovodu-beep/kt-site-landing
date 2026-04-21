@@ -266,11 +266,22 @@ export default function App() {
           <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '10rem', right: '25%', width: '16rem', height: '16rem', border: '1px solid var(--neon)', opacity: 0.1, transform: 'rotate(-6deg)' }}></div>
         </div>
 
-        <div className="max-w-7xl grid md:grid-cols-2 gap-12 items-center px-8 hero-content">
+        <div className="max-w-7xl grid md:grid-cols-2 gap-12 items-center px-8 hero-content hero-content-centered">
           <motion.div className="space-y-10" initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
             <span className="eyebrow-tag">Body Architecture</span>
-            <h1>КУЛЬТУРА<br />ТЕЛА</h1>
-            <p>Студия коррекции фигуры в Москве</p>
+            <div className="hero-title-block">
+              <h1>КУЛЬТУРА<br />ТЕЛА</h1>
+              <p className="hero-subtitle">Студия коррекции фигуры в Москве</p>
+            </div>
+            <p className="hero-summary">
+              Аппаратные и ручные методики, остеопатия, эндокринология и восстановительные практики в одном
+              пространстве с вниманием к телу, здоровью и долгосрочному результату.
+            </p>
+            <div className="hero-proof-strip" aria-label="Преимущества студии">
+              <span>30+ лет практики</span>
+              <span>2 студии в Москве</span>
+              <span>9 направлений работы</span>
+            </div>
             <div className="hero-actions">
               <button className="btn-primary" onClick={() => setShowLocationModal(true)}>Записаться</button>
               <a href="#service" className="hero-secondary-link">Смотреть услуги</a>
@@ -344,13 +355,14 @@ export default function App() {
           <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '15%', right: '30%', width: '5rem', height: '5rem', border: '1px solid var(--neon)', opacity: 0.07, transform: 'rotate(-15deg)' }}></div>
         </div>
         <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem' }}>
+          <div className="section-heading section-heading--split">
             <div>
-              <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em' }}>НАШИ УСЛУГИ</h2>
-              <p style={{ color: 'var(--neon)', fontSize: '1.1rem', marginTop: '1rem', fontWeight: 300, letterSpacing: '0.1em' }}>
-                100% успеха— в руках профессионалов
-              </p>
+              <span className="eyebrow-tag">Services</span>
+              <h2 className="section-heading-title">НАШИ УСЛУГИ</h2>
             </div>
+            <p className="section-heading-text">
+              Комплекс процедур, собранный вокруг коррекции фигуры, восстановления и внимательной работы с телом.
+            </p>
           </div>
           <motion.div
             className="services-grid md:grid-cols-3"
@@ -486,12 +498,12 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl px-8" style={{ position: 'relative', zIndex: 10 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '5rem' }}>
+          <div className="section-heading section-heading--split specialists-heading">
             <div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--neon)', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Expertise</span>
-              <h2 className="section-title-responsive">НАШИ СПЕЦИАЛИСТЫ</h2>
+              <span className="eyebrow-tag">Expertise</span>
+              <h2 className="section-heading-title section-title-responsive">НАШИ СПЕЦИАЛИСТЫ</h2>
             </div>
-            <div style={{ textAlign: 'right', color: 'var(--text-gray)', fontSize: '0.875rem', maxWidth: '300px', fontWeight: 200 }}>
+            <div className="section-heading-text">
               Команда профессионалов, объединенных общей философией заботы о теле.
             </div>
           </div>
@@ -540,9 +552,15 @@ export default function App() {
           <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '3rem', right: '4rem', width: '10rem', height: '10rem', border: '1px solid var(--neon)', opacity: 0.09, transform: 'rotate(-22deg)' }}></div>
           <div className="animate-floatMedium" style={{ position: 'absolute', top: '60%', left: '5%', width: '350px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.07, transform: 'rotate(-12deg)' }}></div>
         </div>
-        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>          <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', marginBottom: '4rem' }}>
-            <b>НАМ ДОВЕРЯЮТ</b>
-          </h2>
+        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-heading">
+            <span className="eyebrow-tag">Trust</span>
+            <h2 className="section-heading-title">НАМ ДОВЕРЯЮТ</h2>
+            <p className="section-heading-text section-heading-text--wide">
+              С нами работают люди из медиа, спорта и творческих индустрий, которым важны деликатный подход,
+              экспертность и устойчивый результат.
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-10">
             {[
               { name: 'Ирина Миронова', desc: 'Российский режиссёр-клипмейкер, сценарист, продюсер и телеведущая, снявшая более 800 музыкальных клипов и занимавшая пост генерального продюсера телеканала «Муз-ТВ» в 2005–2006 годах.' },
@@ -556,14 +574,26 @@ export default function App() {
               { name: 'Дарья Швыкова', desc: 'российский кастинг-директор и режиссёр-фрилансер, работающая над фильмами и театральными постановками, а также преподающая основы актёрского мастерства и сценической речи.' }
             ].map((trust, idx) => (
               <div key={idx} className="trust-card-premium">
-                <div style={{ display: 'flex', gap: '2px', color: '#ffec0f', marginBottom: '1.5rem' }}>
-                  {[...Array(6)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                <div className="trust-card-top">
+                  <span className="trust-card-index">{String(idx + 1).padStart(2, '0')}</span>
+                  <div style={{ display: 'flex', gap: '2px', color: '#ffec0f' }}>
+                    {[...Array(6)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                  </div>
                 </div>
-                <p style={{ fontWeight: 600, fontSize: '1.1rem' }}>{trust.name}</p>
-                <p style={{ color: 'var(--text-gray)', fontSize: '0.875rem', marginTop: '0.75rem', lineHeight: 1.5 }}>{trust.desc}</p>
+                <p className="trust-card-name">{trust.name}</p>
+                <p className="trust-card-desc">{trust.desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="brand-quote-band">
+        <div className="max-w-7xl px-8 brand-quote-inner">
+          <p className="brand-quote-text">
+            «Культура Тела» выигрывает там, где обещает не чудо, а профессиональный маршрут: бережно,
+            системно и с ощущением премиального сопровождения.
+          </p>
         </div>
       </section>
 
@@ -575,9 +605,9 @@ export default function App() {
           <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '5rem', left: '60%', width: '9rem', height: '9rem', border: '1px solid var(--neon)', opacity: 0.09, transform: 'rotate(40deg)' }}></div>
         </div>
         <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ marginBottom: '5rem' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--neon)', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Recognition</span>
-            <h2 className="section-title-responsive">НАШИ ДОСТИЖЕНИЯ</h2>
+          <div className="section-heading">
+            <span className="eyebrow-tag">Recognition</span>
+            <h2 className="section-heading-title section-title-responsive">НАШИ ДОСТИЖЕНИЯ</h2>
           </div>
 
           <div className="achievements-rows">
@@ -675,12 +705,12 @@ export default function App() {
 
       <section className="py-32 px-8 section-relative certs-section">
         <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ marginBottom: '3rem' }}>
+          <div className="section-heading">
             <span className="eyebrow-tag">Квалификация</span>
-            <h2 style={{ fontSize: '2.25rem', fontWeight: 200, letterSpacing: '0.4em', marginTop: '1rem' }}>
+            <h2 className="section-heading-title">
               СЕРТИФИКАТЫ
             </h2>
-            <p style={{ color: 'var(--text-gray)', marginTop: '1rem', fontWeight: 300, fontSize: '0.95rem', letterSpacing: '0.05em' }}>
+            <p className="section-heading-text section-heading-text--wide">
               Листайте — подтверждённая квалификация наших специалистов
             </p>
           </div>
@@ -836,18 +866,31 @@ export default function App() {
       </section>
 
       <footer id="contacts">
-        <div className="footer-content">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'flex-start' }}>
-            <div style={{ letterSpacing: '0.4em' }}>КУЛЬТУРА ТЕЛА</div>
+        <div className="footer-content footer-content-enhanced">
+          <div className="footer-brand-block">
+            <span className="eyebrow-tag">Contacts</span>
+            <div className="footer-brand-name">КУЛЬТУРА ТЕЛА</div>
+            <p className="footer-brand-text">
+              Пространство деликатной коррекции фигуры и восстановления, где эстетика опирается на здоровье,
+              опыт и персональную работу со специалистом.
+            </p>
             <a href="#top" className="back-to-top-btn">Наверх ↑</a>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem', color: 'var(--text-gray)' }}>
-            
-            <div>Москва</div>
-            <div>+7 (965) 331-33-83</div>
-            <div><a href="https://www.instagram.com/kultura.tela/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
-            <div><a href="https://t.me/kultura_tela_msk" target="_blank" rel="noopener noreferrer">Telegram</a></div>
-            <a href="https://api.whatsapp.com/send?phone=79262244579&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC" target="_blank" rel="noopener noreferrer">связаться со специалистом</a>
+          <div className="footer-contact-card">
+            <div className="footer-contact-row">
+              <span className="footer-contact-label">Город</span>
+              <div>Москва</div>
+            </div>
+            <div className="footer-contact-row">
+              <span className="footer-contact-label">Телефон</span>
+              <div>+7 (965) 331-33-83</div>
+            </div>
+            <div className="footer-socials">
+              <a href="https://www.instagram.com/kultura.tela/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://t.me/kultura_tela_msk" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="https://api.whatsapp.com/send?phone=79653313383" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+            <a className="footer-whatsapp-link" href="https://api.whatsapp.com/send?phone=79262244579&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%91%D0%BC" target="_blank" rel="noopener noreferrer">связаться с основателем</a>
           </div>
         </div>
       </footer>
