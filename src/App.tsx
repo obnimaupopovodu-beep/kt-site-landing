@@ -966,7 +966,7 @@ export default function App() {
               <p className="location-modal-subtitle">Запись доступна в двух студиях</p>
               <div className="location-modal-buttons">
                 <a
-                  href="https://salon-scheduler-beryl.vercel.app/book"
+                  href="https://salon-scheduler-beryl.vercel.app/book/garib"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="location-btn"
@@ -974,7 +974,7 @@ export default function App() {
                   Гарибальди
                 </a>
                 <a
-                  href="https://n429978.yclients.com"
+                  href="https://salon-scheduler-beryl.vercel.app/book/shmit"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="location-btn"
