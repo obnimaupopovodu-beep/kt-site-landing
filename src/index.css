@@ -1103,6 +1103,258 @@ footer {
   font-weight: 300;
 }
 
+.trusted-section {
+  background: #0c0c0c;
+}
+
+.trusted-section-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.trusted-section-heading {
+  margin-bottom: 3rem;
+}
+
+.trusted-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.trusted-card {
+  appearance: none;
+  width: 100%;
+  min-height: 100%;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #161616;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+  transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease, background-color 0.32s ease;
+}
+
+.trusted-card:hover,
+.trusted-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #1a1a1a;
+}
+
+.trusted-card:focus-visible {
+  outline: 2px solid rgba(255, 236, 15, 0.45);
+  outline-offset: 3px;
+}
+
+.trusted-card-media {
+  aspect-ratio: 4 / 5;
+  background: #101010;
+  overflow: hidden;
+}
+
+.trusted-card-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.trusted-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.72rem;
+  padding: 1.2rem 1.15rem 1.25rem;
+}
+
+.trusted-card-kicker {
+  color: rgba(255, 255, 255, 0.52);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: none;
+  line-height: 1.45;
+}
+
+.trusted-card-title {
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+}
+
+.trusted-card-summary {
+  color: rgba(255, 255, 255, 0.72);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+}
+
+.trusted-card-link {
+  margin-top: auto;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.96);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: none;
+}
+
+.trusted-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(7, 7, 7, 0.76);
+  backdrop-filter: blur(12px);
+  animation: trustedFadeIn 220ms ease;
+}
+
+.trusted-modal {
+  position: relative;
+  width: min(1100px, 100%);
+  max-height: min(88vh, 920px);
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1fr);
+  background: #111111;
+  color: #f4efe7;
+  overflow: hidden;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+  animation: trustedScaleIn 240ms ease;
+}
+
+.trusted-modal-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4efe7;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.24s ease;
+}
+
+.trusted-modal-close:hover,
+.trusted-modal-close:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  outline: none;
+}
+
+.trusted-modal-close span {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.trusted-modal-media {
+  background: #090909;
+  min-height: 100%;
+}
+
+.trusted-modal-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+.trusted-modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  overflow-y: auto;
+}
+
+.trusted-modal-kicker {
+  color: rgba(244, 239, 231, 0.46);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.trusted-modal-title {
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+}
+
+.trusted-modal-subtitle {
+  color: rgba(244, 239, 231, 0.62);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.trusted-modal-description {
+  color: rgba(244, 239, 231, 0.82);
+  font-size: 1rem;
+  line-height: 1.9;
+  max-width: 44ch;
+}
+
+.trusted-modal-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid rgba(244, 239, 231, 0.16);
+  color: #f4efe7;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.76rem;
+}
+
+.trusted-modal-link:hover,
+.trusted-modal-link:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  outline: none;
+}
+
+@keyframes trustedFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes trustedScaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .widget-container-styled {
   background-color: #141414;
   border-radius: 12px;
@@ -2256,5 +2508,67 @@ footer {
 
   .certs-track {
     padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .trusted-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .trusted-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem;
+  }
+
+  .trusted-modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .trusted-modal {
+    width: 100%;
+    max-height: 92vh;
+    grid-template-columns: 1fr;
+  }
+
+  .trusted-modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(17, 17, 17, 0.78);
+  }
+
+  .trusted-modal-body {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 375px) {
+  .trusted-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trusted-card-body {
+    padding: 1rem;
+  }
+
+  .trusted-modal-title {
+    font-size: 1.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trusted-card,
+  .trusted-modal-backdrop,
+  .trusted-modal {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .trusted-card:hover,
+  .trusted-card:focus-visible {
+    transform: none;
   }
 }

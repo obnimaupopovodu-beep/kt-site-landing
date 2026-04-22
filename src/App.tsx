@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import {TrustedBySection} from './components/TrustedBySection';
 import {
   ArrowRight,
-  Star,
   Hand,
   TestTubeDiagonal,
   Bone,
@@ -559,47 +559,7 @@ export default function App() {
 
       <div className="section-divider"><span></span></div>
 
-      <section className="py-32 px-8 section-relative">
-        <div className="section-shapes">
-          <div className="animate-rotateSlow" style={{ position: 'absolute', top: '4rem', left: '50%', width: '14rem', height: '14rem', border: '1px solid var(--neon)', opacity: 0.07, transform: 'rotate(30deg)' }}></div>
-          <div className="animate-floatSlow" style={{ position: 'absolute', bottom: '3rem', right: '4rem', width: '10rem', height: '10rem', border: '1px solid var(--neon)', opacity: 0.09, transform: 'rotate(-22deg)' }}></div>
-          <div className="animate-floatMedium" style={{ position: 'absolute', top: '60%', left: '5%', width: '350px', height: '1px', backgroundColor: 'var(--neon)', opacity: 0.07, transform: 'rotate(-12deg)' }}></div>
-        </div>
-        <div className="max-w-7xl" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-heading">
-            <span className="eyebrow-tag">Trust</span>
-            <h2 className="section-heading-title">НАМ ДОВЕРЯЮТ</h2>
-            <p className="section-heading-text section-heading-text--wide">
-              С нами работают люди из медиа, спорта и творческих индустрий, которым важны деликатный подход,
-              экспертность и устойчивый результат.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              { name: 'Ирина Миронова', desc: 'Российский режиссёр-клипмейкер, сценарист, продюсер и телеведущая, снявшая более 800 музыкальных клипов и занимавшая пост генерального продюсера телеканала «Муз-ТВ» в 2005–2006 годах.' },
-              { name: 'Кристина Юдичева', desc: 'Актриса театра и кино, известная своими ролями в российских сериалах и фильмах.' },
-              { name: 'Юлия Day', desc: ' российский дизайнер одежды, создающая яркие сценические образы для звёзд шоу-бизнеса, в том числе для Филиппа Киркорова, Кристины Орбакайте, Светланы Лободы и Полины Гагариной.' },
-              { name: 'Кристина Орбакайте', desc: 'советская и российская эстрадная певица и актриса, заслуженная артистка России, исполнительница хитов «Перелётная птица» и «Мой мир», дочь Аллы Пугачёвой.' },
-              { name: 'Оксана Фёдорова', desc: 'Российская телеведущая, победительница конкурсов «Мисс Санкт-Петербург» (1999), «Мисс Россия» (2001) и «Мисс Вселенная». Фотомодель, Актриса и Певица.' },
-              { name: 'Габриела Да Сильва', desc: ' бразильская певица и телеведущая, почётный гражданин Рио-де-Жанейро, известная в России как ведущая телепрограмм и участница музыкальных проектов.' },
-              { name: 'Тина Стойилкович', desc: 'сербская и российская актриса театра и кино, выпускница Театрального института имени Щукина, известная по ролям в сериалах «Оффлайн» и «Москва слезам не верит. Все только начинается»' },
-              { name: 'Елена Борщева', desc: ' российская актриса, юмористка и телеведущая, бывшая участница КВН («Сборная Пятигорска») и шоу «Comedy Woman», также выступающая как стендап-комик и певица.' },
-              { name: 'Дарья Швыкова', desc: 'российский кастинг-директор и режиссёр-фрилансер, работающая над фильмами и театральными постановками, а также преподающая основы актёрского мастерства и сценической речи.' }
-            ].map((trust, idx) => (
-              <div key={idx} className="trust-card-premium">
-                <div className="trust-card-top">
-                  <span className="trust-card-index">{String(idx + 1).padStart(2, '0')}</span>
-                  <div style={{ display: 'flex', gap: '2px', color: '#ffec0f' }}>
-                    {[...Array(6)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
-                  </div>
-                </div>
-                <p className="trust-card-name">{trust.name}</p>
-                <p className="trust-card-desc">{trust.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrustedBySection />
 
       <section className="brand-quote-band">
         <div className="max-w-7xl px-8 brand-quote-inner">
@@ -989,3 +949,6 @@ export default function App() {
     </div>
   );
 }
+// git add . 
+// git commit -m "data update"
+// git push origin main
