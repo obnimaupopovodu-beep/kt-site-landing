@@ -1,5 +1,5 @@
 import React, {useEffect, useId, useRef} from 'react';
-
+import { motion } from 'motion/react';
 export interface TrustedItem {
   id: string;
   image: string;
@@ -73,20 +73,28 @@ export function TrustedModal({item, onClose, returnFocusRef}: TrustedModalProps)
   }, [onClose, returnFocusRef]);
 
   return (
-    <div
-      className="trusted-modal-backdrop"
-      onClick={onClose}
-      aria-hidden="true"
+  <motion.div
+    className="trusted-modal-backdrop"
+    onClick={onClose}
+    aria-hidden="true"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.22, ease: 'easeInOut' }}
+  >
+    <motion.div
+      ref={modalRef}
+      className="trusted-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+      aria-describedby={descriptionId}
+      onClick={(event) => event.stopPropagation()}
+      initial={{ opacity: 0, y: 10, scale: 0.985 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 10, scale: 0.985 }}
+      transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div
-        ref={modalRef}
-        className="trusted-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        aria-describedby={descriptionId}
-        onClick={(event) => event.stopPropagation()}
-      >
         <button
           type="button"
           className="trusted-modal-close"
@@ -114,7 +122,7 @@ export function TrustedModal({item, onClose, returnFocusRef}: TrustedModalProps)
             {item.linkLabel}
           </a>
         </div>
-      </div>
-    </div>
-  );
+      </motion.div>
+  </motion.div>
+);
 }
