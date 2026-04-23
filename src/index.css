@@ -1723,75 +1723,56 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
-  .hero {
-    background-attachment: scroll;
+@@media (max-width: 768px) {
+  .trusted-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem;
   }
 
-  .hero-content {
-    padding-top: 3rem;
+  .trusted-modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
   }
 
-  .hero h1 {
-    font-size: 3.5rem;
-    letter-spacing: 0.12em;
-  }
-
-  .hero-subtitle {
-    letter-spacing: 0.22em;
-    font-size: 0.72rem;
-  }
-
-  .hero-summary {
-    font-size: 0.95rem;
-    line-height: 1.75;
-  }
-
-  .hero-proof-strip {
-    gap: 0.65rem;
-  }
-
-  .hero-proof-strip span {
+  .trusted-modal {
     width: 100%;
-    justify-content: center;
-  }
-
-  .hero-side-panel {
-    margin-top: 1rem;
-  }
-
-  .hero-side-card {
-    min-height: auto;
-  }
-
-  .hero-actions {
-    align-items: flex-start;
+    max-height: 92vh;
+    grid-template-columns: 1fr;
+    /* Убираем overflow: hidden — он блокирует скролл внутри */
+    overflow: visible;
+    display: flex;
     flex-direction: column;
   }
 
-  .marquee-track span {
-    letter-spacing: 0.26em;
+  .trusted-modal-media {
+    flex: 0 0 auto;
+    max-height: 45vh;
+    overflow: hidden;
   }
 
-  .experience-highlight {
-    padding-top: 2rem;
+  .trusted-modal-image {
+    aspect-ratio: auto;
+    height: 100%;
+    max-height: 45vh;
+    width: 100%;
+    object-fit: cover;
   }
 
-  .experience-watermark {
-    font-size: 3.5rem;
-    top: 0.5rem;
+  .trusted-modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(17, 17, 17, 0.78);
   }
 
-  .chaotic-images {
-    height: 320px;
-  }
-
-  .section-heading {
-    margin-bottom: 2.5rem;
-  }
-
-  .section-heading-title {
-    letter-spacing: 0.12em;
+  .trusted-modal-body {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    /* Предотвращаем что скролл "проваливается" на backdrop */
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
   }
 }
 
