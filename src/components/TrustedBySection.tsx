@@ -111,10 +111,7 @@ export function TrustedBySection() {
           <div className="section-heading trusted-section-heading">
             <span className="eyebrow-tag">Trust</span>
             <h2 id="trusted-by-title" className="section-heading-title">НАМ ДОВЕРЯЮТ</h2>
-            <p className="section-heading-text section-heading-text--wide">
-              Лаконичная витрина доверия: на карточках только важная выжимка, а детали раскрываются по клику в
-              модальном окне. Это делает social proof сильнее и чище.
-            </p>
+            
           </div>
 
           <div className="trusted-grid">
