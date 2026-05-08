@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue } from 'motion/react';
 import {TrustedBySection} from './components/TrustedBySection';
 import {
   ArrowRight,
@@ -207,6 +207,18 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [certModal, setCertModal] = useState<string | null>(null);
   const [enableDesktopScrollAnimations, setEnableDesktopScrollAnimations] = useState<boolean>(false);
+  const certX = useMotionValue(0);
+
+  const handleCertWheel = (e: React.WheelEvent) => {
+    const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+    const delta = isHorizontal ? e.deltaX : e.deltaY;
+    if (Math.abs(delta) < 3) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const min = -((CERT_IMAGES.length - 1) * 280);
+    const next = Math.max(min, Math.min(0, certX.get() - delta));
+    certX.set(next);
+  };
 
   const scrollLockRef = React.useRef<number | null>(null);
 
@@ -703,7 +715,8 @@ export default function App() {
               dragElastic={0.08}
               dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
               whileTap={{ cursor: 'grabbing' }}
-              style={{ cursor: 'grab' }}
+              style={{ x: certX, cursor: 'grab' }}
+              onWheel={handleCertWheel}
             >
               {CERT_IMAGES.map((src, idx) => (
                 <motion.div
