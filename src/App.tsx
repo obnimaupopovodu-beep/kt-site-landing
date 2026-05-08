@@ -691,7 +691,7 @@ export default function App() {
               СЕРТИФИКАТЫ
             </h2>
             <p className="section-heading-text section-heading-text--wide">
-              Листайте — подтверждённая квалификация наших специалистов
+            Подтверждённая квалификация наших специалистов
             </p>
           </div>
 
@@ -791,7 +791,7 @@ export default function App() {
         <motion.div className="map-section-header" {...fadeUp}>
           <span className="eyebrow-tag">Мы на карте</span>
           <h2>Как нас найти</h2>
-          <p className="map-section-subtitle">Студия коррекции фигуры в Москве — запишитесь и приходите</p>
+          <p className="map-section-subtitle">Студия коррекции фигуры в Москве</p>
         </motion.div>
 
         <div className="map-grid">
